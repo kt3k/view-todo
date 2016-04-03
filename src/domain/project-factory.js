@@ -46,17 +46,17 @@ export default class ProjectFactory {
       } else {
         if (currentState === STATE_TODO) {
           todos.push(token)
-        } else if (currentState === STATE_TODO) {
+        } else if (currentState === STATE_DONE) {
           dones.push(token)
         }
       }
     })
 
     return new Project({
-      title,
-      path,
-      todos: todoFactory.createFromTokens(todos),
-      dones: todoFactory.createFromTokens(dones),
+      title: title,
+      path: path,
+      todos: todoFactory.createFromTokens(todos, false),
+      dones: todoFactory.createFromTokens(dones, true),
     })
   }
 

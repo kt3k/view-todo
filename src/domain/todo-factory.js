@@ -17,7 +17,6 @@ export default class TodoFactory {
     const listStack = []
 
     tokens.forEach(token => {
-      console.log(listStack)
       if (token.type === 'list_start') {
         if (listStack.length == 0) {
           listStack.push(rootList)
@@ -33,8 +32,9 @@ export default class TodoFactory {
         getLast(listStack).push(this.createFromTextToken(token))
       }
 
-      return rootList
     })
+
+    return rootList
   }
 
   /**
