@@ -1,0 +1,24 @@
+{
+  "name": "todo-md",
+  "version": "0.1.0",
+  "description": "TODO.md viewer app.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kt3k/todo-md.git"
+  },
+  "keywords": [
+    "todo",
+    "project",
+    "management"
+  ],
+  "author": "Yoshiya Hinosawa <stibium121@gmail.com> (https://twitter.com/kt3k)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kt3k/todo-md/issues"
+  },
+  "homepage": "https://github.com/kt3k/todo-md#readme"
+}
