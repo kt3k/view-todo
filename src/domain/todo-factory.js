@@ -18,7 +18,7 @@ export default class TodoFactory {
 
     tokens.forEach(token => {
       if (token.type === 'list_start') {
-        if (listStack.length == 0) {
+        if (listStack.length === 0) {
           listStack.push(rootList)
         } else {
           // The last item (type: TODO) of the current list is the parent of the next nested subtodos

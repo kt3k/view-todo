@@ -56,7 +56,7 @@ export default class ProjectFactory {
       title: title,
       path: path,
       todos: todoFactory.createFromTokens(todos, false),
-      dones: todoFactory.createFromTokens(dones, true),
+      dones: todoFactory.createFromTokens(dones, true)
     })
   }
 
