@@ -2,6 +2,7 @@ import Project from '../../src/domain/project'
 import ProjectFactory from '../../src/domain/project-factory'
 
 import fs from 'fs'
+import path from 'path'
 
 import {expect} from 'chai'
 
@@ -13,7 +14,7 @@ describe('ProjectFactory', () => {
 
     it('creates a project from the title, path and markdown string', () => {
 
-      const project = factory.createFromTitlePathMarkdown('foo', '/home/user/project', fs.readFileSync(`${__dirname}/../fixture/TODO.md`).toString())
+      const project = factory.createFromTitlePathMarkdown('foo', '/home/user/project', fs.readFileSync(`${path.dirname(__dirname)}/fixture/TODO.md`).toString())
 
       expect(project).to.be.instanceof(Project)
       expect(project.title).to.equal('foo')
