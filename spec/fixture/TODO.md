@@ -18,6 +18,10 @@
 - Server
   - search configuraton $CWD/todo.conf.yml -> $HOME/.todo.conf.yml
 
+# Memo
+
+- This is a memo
+
 # DONE
 
 - Set up package.json

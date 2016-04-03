@@ -3,3 +3,7 @@
 
 # dist
 /lib
+
+# nyc
+/coverage
+/.nyc_output
