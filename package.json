@@ -4,6 +4,7 @@
   "description": "TODO.md viewer app.",
   "main": "lib/index.js",
   "scripts": {
+    "start": "babel-node src/server.js",
     "test": "_mocha --require babel-register spec/**/*.js",
     "lib": "babel src -d lib",
     "lint": "souffle -2",
@@ -30,6 +31,9 @@
       "es2015"
     ]
   },
+  "dependencies": {
+    "hapi": "^9.0.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.6.5",
     "babel-preset-es2015": "^6.6.0",
@@ -53,6 +57,11 @@
   "nyc": {
     "exclude": [
       "spec"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "es2015"
     ]
   }
 }
