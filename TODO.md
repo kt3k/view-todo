@@ -1,12 +1,13 @@
 # TODO
 
-- create ProjectConfiguration#getProject(): Project
-- Implement GET /projects
 - Set up frontend build with bulbo
-- Server
-  - search configuraton $CWD/todo.conf.yml -> $HOME/.todo.conf.yml
+- Set up bootstrap
 
 # DONE
+- Server
+  - search configuraton $CWD/todo.conf.yml -> $HOME/.todo.conf.yml
+- Implement GET /projects
+- Create ProjectConfiguration#getProject(): Project
 - Create ProjectConfigurationRepository#getByPath
 - Create TODO model
   - title The title of the todo

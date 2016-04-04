@@ -10,7 +10,7 @@ export default class ProjectConfiguration {
     this.title = title
     this.path = path
     this.note = note
-    this.order = order
+    this.order = order || -Infinity
     this.tags = tags
   }
 

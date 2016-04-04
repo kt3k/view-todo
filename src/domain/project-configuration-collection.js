@@ -29,4 +29,11 @@ export default class ProjectConfigurationCollection {
     this.items.sort((x, y) => x.order - y.order)
   }
 
+  /**
+   * @return {Project[]}
+   */
+  getProjects() {
+    return this.items.map(conf => conf.getProject())
+  }
+
 }
