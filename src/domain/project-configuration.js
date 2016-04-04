@@ -3,7 +3,8 @@
  */
 export default class ProjectConfiguration {
 
-  constructor({path, note, order, tags}) {
+  constructor({title, path, note, order, tags}) {
+    this.title = title
     this.path = path
     this.note = note
     this.order = order
