@@ -22,7 +22,7 @@ describe('ProjectConfigurationFactory', () => {
       expect(conf.title).to.equal('foo')
       expect(conf.path).to.equal('/home/user/who/foo')
       expect(conf.note).to.equal('This is a sample.')
-      expect(conf.tags).to.eql(['bar', 'baz', 'spam'])
+      expect(conf.tags).to.eql(['bar baz', 'spam'])
 
     })
 

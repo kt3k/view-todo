@@ -11,7 +11,7 @@ export default class ProjectConfigurationFactory {
    * @return {ProjectConfiguration}
    */
   createFromDslObject({title, path, note, order, tags} = {}) {
-    tags = tags ? tags.split(/[, ]+/g) : []
+    tags = tags ? tags.split(/\s*,\s*/g) : []
 
     return new ProjectConfiguration({title, path, note, order, tags})
   }
