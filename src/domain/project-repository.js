@@ -14,17 +14,20 @@ export default class ProjectRepository {
 
     const todoPaths = configuration.getTodoPaths()
 
-    let markdown
+    let markdown = null
 
-    todoPaths.forEach(path => {
-      try {
-        markdown = fs.readFileSync(configuration.path).toString()
-      } catch (e) {
+    for (let i = 0; i < todoPaths.length; i++) {
+      let path = todoPaths[i]
+
+      if (!fs.existsSync(path)) {
+        continue
       }
-    })
+
+      markdown = fs.readFileSync(path).toString()
+    }
 
     if (markdown == null) {
-      throw new Error('TODO markdown file not found at path(s):', JSON.stringify(todoPaths))
+      throw new Error(`TODO markdown file not found at path(s): ${JSON.stringify(todoPaths)}`)
     }
 
     return factory.createFromMarkdown(markdown, configuration)

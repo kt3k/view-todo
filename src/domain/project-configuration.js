@@ -1,3 +1,6 @@
+import ProjectRepository from './project-repository'
+const repository = new ProjectRepository()
+
 /**
  * The project configuration model.
  */
@@ -27,5 +30,13 @@ export default class ProjectConfiguration {
 
     return [this.path + '/TODO.md', this.path + '/todo.md']
 
+  }
+
+  /**
+   * Gets the project.
+   * @return {Project}
+   */
+  getProject() {
+    return repository.getByConfiguration(this)
   }
 }
