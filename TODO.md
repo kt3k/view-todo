@@ -1,5 +1,13 @@
 # TODO
 
+- Create ProjectConfigurationRepository#getFromPath
+- Implement GET /projects
+- Set up frontend build with bulbo
+- Server
+  - search configuraton $CWD/todo.conf.yml -> $HOME/.todo.conf.yml
+
+# DONE
+
 - Create TODO model
   - title The title of the todo
   - completed True iff completed
@@ -14,10 +22,4 @@
   - note The note for the project
   - order The order to show the project
   - tags The tags used for filtering
-
-- Server
-  - search configuraton $CWD/todo.conf.yml -> $HOME/.todo.conf.yml
-
-# DONE
-
 - Set up package.json
