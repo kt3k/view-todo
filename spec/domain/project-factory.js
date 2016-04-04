@@ -1,5 +1,6 @@
 import Project from '../../src/domain/project'
 import ProjectFactory from '../../src/domain/project-factory'
+import ProjectConfiguration from '../../src/domain/project-configuration'
 
 import fs from 'fs'
 import path from 'path'
@@ -10,11 +11,13 @@ const factory = new ProjectFactory()
 
 describe('ProjectFactory', () => {
 
-  describe('createFromTitlePathMarkdown', () => {
+  describe('createFromMarkdown', () => {
 
-    it('creates a project from the title, path and markdown string', () => {
+    it('creates a project from the markdown string and configuration', () => {
 
-      const project = factory.createFromTitlePathMarkdown('foo', '/home/user/project', fs.readFileSync(`${path.dirname(__dirname)}/fixture/TODO.md`).toString())
+      const configuration = new ProjectConfiguration({title: 'foo', path: '/home/user/project'})
+
+      const project = factory.createFromMarkdown(fs.readFileSync(`${path.dirname(__dirname)}/fixture/TODO.md`).toString(), configuration)
 
       expect(project).to.be.instanceof(Project)
       expect(project.title).to.equal('foo')

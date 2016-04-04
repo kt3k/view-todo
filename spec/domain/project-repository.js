@@ -1,5 +1,6 @@
 import Project from '../../src/domain/project'
 import ProjectRepository from '../../src/domain/project-repository'
+import ProjectConfiguration from '../../src/domain/project-configuration'
 
 import path from 'path'
 
@@ -15,10 +16,15 @@ describe('ProjectRepository', () => {
 
     it('gets the project from todo.md of the given path', () => {
 
-      const project = repository.getByPath(fixturePath)
+      const configuration = new ProjectConfiguration({
+        title: 'foo',
+        path: fixturePath
+      })
+
+      const project = repository.getByConfiguration(configuration)
 
       expect(project).to.be.instanceof(Project)
-      expect(project.title).to.equal('fixture')
+      expect(project.title).to.equal('foo')
 
     })
 

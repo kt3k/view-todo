@@ -11,20 +11,18 @@ const todoFactory = new TodoFactory()
 export default class ProjectFactory {
 
   /**
-   * @param {string} title The title
-   * @param {string} path The path
    * @param {string} markdown The markdown string
+   * @param {ProjectConfiguration} configuration The configuration
    */
-  createFromTitlePathMarkdown(title, path, markdown) {
-    return this.createFromTitlePathTokens(title, path, marked.lexer(markdown))
+  createFromMarkdown(markdown, configuration) {
+    return this.createFromTokens(marked.lexer(markdown), configuration)
   }
 
   /**
-   * @param {string} title The title
-   * @param {string} path The path
    * @param {object[]} tokens The parsed token object list of `marked` module
+   * @param {ProjectConfiguration} configuration The configuration
    */
-  createFromTitlePathTokens(title, path, tokens) {
+  createFromTokens(tokens, configuration) {
     const todos = []
     const dones = []
 
@@ -53,10 +51,11 @@ export default class ProjectFactory {
     })
 
     return new Project({
-      title: title,
-      path: path,
+      title: configuration.title,
+      path: configuration.path,
       todos: todoFactory.createFromTokens(todos, false),
-      dones: todoFactory.createFromTokens(dones, true)
+      dones: todoFactory.createFromTokens(dones, true),
+      configuration: configuration
     })
   }
 

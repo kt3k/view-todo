@@ -8,14 +8,25 @@ import path from 'path'
 export default class ProjectRepository {
 
   /**
-   * @param {string} todoPath The path of the todo.md
+   * @param {ProjectConfiguration} configuration The configuration
    */
-  getByPath(todoPath) {
-    const markdown = fs.readFileSync(todoPath).toString()
+  getByConfiguration(configuration) {
 
-    // The project's title is simply dirname todo.md is put into
-    const projectTitle = path.basename(path.dirname(todoPath))
+    const todoPaths = configuration.getTodoPaths()
 
-    return factory.createFromTitlePathMarkdown(projectTitle, todoPath, markdown)
+    let markdown
+
+    todoPaths.forEach(path => {
+      try {
+        markdown = fs.readFileSync(configuration.path).toString()
+      } catch (e) {
+      }
+    })
+
+    if (markdown == null) {
+      throw new Error('TODO markdown file not found at path(s):', JSON.stringify(todoPaths))
+    }
+
+    return factory.createFromMarkdown(markdown, configuration)
   }
 }

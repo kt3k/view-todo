@@ -21,6 +21,9 @@ Project:
   dones:
     type: TODO[]
     desc: The completed todos which belong to the project
+  configuration:
+    type: ProjectConfiguration
+    desc: The configuration
 ProjectConfiguration:
   path:
     type: string

@@ -10,4 +10,22 @@ export default class ProjectConfiguration {
     this.order = order
     this.tags = tags
   }
+
+  /**
+   * Gets the todo.md path candidates.
+   * @return {string[]}
+   */
+  getTodoPaths() {
+
+    if (/(todo|TODO)\.md$/.test(this.path)) {
+      return [this.path]
+    }
+
+    if (/\/$/.test(this.path)) {
+      return [this.path + 'TODO.md', this.path + 'todo.md']
+    }
+
+    return [this.path + '/TODO.md', this.path + '/todo.md']
+
+  }
 }
