@@ -1,4 +1,5 @@
 import {Server} from 'hapi'
+import inert from 'inert'
 import getProjects from './app/get-projects'
 
 const server = new Server()
@@ -7,38 +8,46 @@ const CONFIG_FILE = 'todo.conf.md'
 
 let projects
 
-main()
+serve(PORT)
 
-function main() {
-  server.connection({port: PORT})
+export function serve(port) {
+  server.connection({port})
 
-  server.route({
-    method: 'GET',
-    path: '/projects',
-    handler: (request, reply) => {
-      const response = reply(JSON.stringify(projects))
-      response.type('application/json')
-    }
-  })
+  server.register(inert, err => {
 
-  server.start(err => {
-    if (err) {
-      console.log(err.stack)
-      return
-    }
+    server.route({
+      method: 'GET',
+      path: '/api/projects',
+      handler: (request, reply) => {
+        reply(projects)
+      }
+    })
 
-    try {
+    server.route({
+      method: 'GET',
+      path: '/site/{param*}',
+      handler: { directory: { path: 'site', listing: true } }
+    })
 
-      projects = getProjects(CONFIG_FILE)
-      console.log(projects)
+    server.start(err => {
+      if (err) {
+        console.log(err.stack)
+        return
+      }
 
-    } catch (e) {
+      try {
 
-      console.log(e.stack)
+        projects = getProjects(CONFIG_FILE)
 
-      process.exit(1)
-    }
+      } catch (e) {
 
-    console.log('Server running at:', server.info.uri + '/projects')
+        console.log(e.stack)
+
+        process.exit(1)
+      }
+
+      console.log('Server running at:', server.info.uri + '/site')
+    })
+
   })
 }
