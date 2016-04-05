@@ -1,9 +1,14 @@
 # TODO
 
-- Set up frontend build with bulbo
-- Set up bootstrap
+- handle nested todo
+- livereload
+- Close DONEs at first
+- Add cli
+- Add .npmignore
 
 # DONE
+- Set up frontend build with bulbo
+- Set up bootstrap
 - Server
   - search configuraton $CWD/todo.conf.yml -> $HOME/.todo.conf.yml
 - Implement GET /projects
