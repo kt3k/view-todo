@@ -4,7 +4,7 @@ import getProjects from './app/get-projects'
 
 const server = new Server()
 const PORT = 3000
-const CONFIG_FILE = 'todo.conf.md'
+const CONFIG_FILE = 'todo.conf.yml'
 
 let projects
 
