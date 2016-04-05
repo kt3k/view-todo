@@ -9,7 +9,7 @@ const repository = new ProjectConfigurationRepository()
  */
 export default (path) => {
 
-  const paths = [path, `${process.env.PWD}/${path}`, `${process.env.HOME}/${path}`]
+  const paths = [path, `${process.env.PWD}/${path}`, `${process.env.HOME}/.${path}`]
 
   for (let i = 1; i < paths.length; i++) {
     let path = paths[i]
