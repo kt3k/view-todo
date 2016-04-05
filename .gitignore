@@ -4,6 +4,7 @@
 
 # dist
 /lib
+/site
 
 # nyc
 /coverage
