@@ -17,7 +17,14 @@ function main() {
 function renderProject(project) {
   const main = '.main'
 
-  $('<h2/>').text(project.title).appendTo(main)
+  const pageTitle = $('<h2/>').text(project.title).appendTo(main)
+
+  project.configuration.tags.forEach(tag => {
+    const wrap = $('<span/>').appendTo(pageTitle)
+    const small = $('<small/>').appendTo(wrap)
+    $('<span"/>').text(' ').appendTo(small)
+    $('<span class="label label-info"/>').text(tag).appendTo(small)
+  })
 
   const container = $('<div class="container"/>').appendTo(main)
 
