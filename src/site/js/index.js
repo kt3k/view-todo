@@ -6,7 +6,7 @@ const PROJECT_API = '/api/projects'
 
 function main() {
 
-  Promise.resolve($.get(PROJECT_API)).then(projects => {
+  return Promise.resolve($.get(PROJECT_API)).then(projects => {
 
     projects.forEach(project => renderProject(project))
 
@@ -36,9 +36,11 @@ function renderProject(project) {
     $('<li/>').text(todo.title).appendTo(todoList)
   })
 
-  $('<h3/>').text('DONE').appendTo(container)
+  const doneSection = $('<div class="done-section"/>').appendTo(container)
 
-  const doneList = $('<ul/>').appendTo(container)
+  $('<h3/>').text('DONE').appendTo(doneSection)
+
+  const doneList = $('<ul/>').appendTo(doneSection)
 
   project.dones.forEach(done => {
     $('<li/>').text(done.title).appendTo(doneList)
