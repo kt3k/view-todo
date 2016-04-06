@@ -19,7 +19,7 @@ export function serve(configFilename, port) {
       method: 'GET',
       path: '/api/projects',
       handler: (request, reply) => {
-        reply(projects)
+        reply(getProjects(configFilename))
       }
     })
 
