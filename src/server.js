@@ -2,15 +2,15 @@ import {Server} from 'hapi'
 import inert from 'inert'
 import getProjects from './app/get-projects'
 
-const server = new Server()
-const PORT = 3000
-const CONFIG_FILE = 'todo.conf.yml'
+/**
+ * @param {string} configFilename The config filename
+ * @param {number} port The port number
+ */
+export function serve(configFilename, port) {
 
-let projects
+  const server = new Server()
+  let projects
 
-serve(PORT)
-
-export function serve(port) {
   server.connection({port})
 
   server.register(inert, err => {
@@ -37,7 +37,7 @@ export function serve(port) {
 
       try {
 
-        projects = getProjects(CONFIG_FILE)
+        projects = getProjects(configFilename)
 
       } catch (e) {
 
@@ -50,4 +50,5 @@ export function serve(port) {
     })
 
   })
+
 }

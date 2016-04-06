@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "TODO.md viewer app.",
   "main": "lib/index.js",
+  "bin": {
+    "todo-md": "bin/todo-md.js"
+  },
   "scripts": {
     "start": "babel-node src/server.js",
     "test": "_mocha --require babel-register spec/**/*.js",
@@ -10,7 +13,10 @@
     "site": "bulbo build",
     "lint": "souffle -2",
     "cov": "nyc --reporter=lcov npm test",
-    "codecov": "npm run cov && codecov < coverage/lcov.info"
+    "codecov": "npm run cov && codecov < coverage/lcov.info",
+    "clean": "echo remove site and lib",
+    "dist": "npm run lib && npm run site",
+    "prepublish": "npm run clean && npm run dist"
   },
   "repository": {
     "type": "git",

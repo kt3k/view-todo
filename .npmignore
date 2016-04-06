@@ -1,0 +1,13 @@
+# npm
+/node_modules
+/npm-debug.log
+
+# es6 src
+/src
+
+# test
+/spec
+
+# nyc
+/coverage
+/.nyc_output
