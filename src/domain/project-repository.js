@@ -5,6 +5,9 @@ const factory = new ProjectFactory()
 import fs from 'fs'
 import path from 'path'
 
+/**
+ * The repository for project.
+ */
 export default class ProjectRepository {
 
   /**
