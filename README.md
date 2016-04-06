@@ -35,6 +35,20 @@ Then you can run todo viewer server with the command:
 
 The above starts the server at http://localhost:3000/site/
 
+# Commands
+
+## Starts the server
+
+    todo-md
+
+## Init config
+
+    todo-md init
+
+## Edit config
+
+    todo-md edit
+
 # License
 
 MIT
