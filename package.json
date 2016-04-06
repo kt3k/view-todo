@@ -1,5 +1,5 @@
 {
-  "name": "todo-md",
+  "name": "todo-md-cli",
   "version": "0.1.0",
   "description": "TODO.md viewer app.",
   "main": "lib/index.js",
