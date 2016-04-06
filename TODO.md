@@ -2,11 +2,11 @@
 
 - handle nested todo
 - livereload
-- Close DONEs at first
-- Add cli
-- Add .npmignore
+- Make DONEs section closed at first
 
 # DONE
+- Add cli
+- Add .npmignore
 - Set up frontend build with bulbo
 - Set up bootstrap
 - Server
