@@ -1,5 +1,5 @@
 import './todo-section'
-import {div, hr, small, span, h2} from 'dom-gen'
+import {div, hr, h2} from 'dom-gen'
 
 const {component, Coelement} = $.cc
 
@@ -18,12 +18,7 @@ export default class ProjectSection extends Coelement {
       h2().append(
         this.project.title,
         this.project.configuration.tags.map(tag =>
-          span().append(
-            small().append(
-              span().text(' '),
-              span().text(tag).addClass('label label-info')
-            )
-          )
+          ` <small><span class="label label-info">${tag}</span></small>`
         )
       ),
       div().addClass('container').append(
