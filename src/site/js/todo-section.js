@@ -1,5 +1,5 @@
 import './todo-section'
-import {div, ul, li, h3} from 'dom-gen'
+import {div, ul, li, h3, sup} from 'dom-gen'
 
 const {component, Coelement} = $.cc
 
@@ -11,7 +11,10 @@ export class TaskSection extends Coelement {
     const tasks = elem.data('tasks')
 
     this.elem.append(
-      h3().text(this.taskLabel()),
+      h3().append(
+        this.taskLabel(),
+        sup().text(tasks.length)
+      ),
       ul().append(tasks.map(task => li().text(task.title)))
     )
   }

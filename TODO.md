@@ -1,14 +1,13 @@
 # TODO
 
-- create gen-dom module
 - project title fallback to dirname when none given
 - handle nested todo
-- livereload
-- Make DONEs section closed at first
 - filter by tag
-- Show remaining num of todos
 
 # DONE
+- Show remaining num of todos
+- Make DONEs section closed at first
+- create dom-gen module
 - Use class-component
 - Add cli
 - Add .npmignore
