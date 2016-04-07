@@ -1,10 +1,15 @@
 # TODO
 
+- create gen-dom module
+- project title fallback to dirname when none given
 - handle nested todo
 - livereload
 - Make DONEs section closed at first
+- filter by tag
+- Show remaining num of todos
 
 # DONE
+- Use class-component
 - Add cli
 - Add .npmignore
 - Set up frontend build with bulbo
