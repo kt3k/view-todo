@@ -48,7 +48,7 @@ Example
 
 You can access http://localhost:3000/site and will see something like:
 
-
+![ss](http://kt3k.github.io/todo-md/media/todo-ss.png)
 
 ## Init config (not yet implemented)
 

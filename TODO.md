@@ -13,6 +13,7 @@
 - filter by tag
 
 # DONE
+- add screenshot
 - Show remaining num of todos
 - Make DONEs section closed at first
 - create dom-gen module
