@@ -70,6 +70,7 @@
   },
   "souffle": {
     "globals": [
+      "$",
       "describe",
       "it"
     ]

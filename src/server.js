@@ -9,11 +9,15 @@ import getProjects from './app/get-projects'
 export function serve(configFilename, port) {
 
   const server = new Server()
-  let projects
 
   server.connection({port})
 
   server.register(inert, err => {
+
+    if (err) {
+      console.log(err.stack)
+      process.exit(1)
+    }
 
     server.route({
       method: 'GET',
@@ -37,7 +41,8 @@ export function serve(configFilename, port) {
 
       try {
 
-        projects = getProjects(configFilename)
+        // checks if the config file is ok, does not use the returns projects object
+        getProjects(configFilename)
 
       } catch (e) {
 
