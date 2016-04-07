@@ -41,11 +41,20 @@ The above starts the server at http://localhost:3000/site/
 
     todo-md
 
-## Init config
+Example
+
+    $ todo-md
+    Server running at: http://localhost:3000/site
+
+You can access http://localhost:3000/site and will see something like:
+
+
+
+## Init config (not yet implemented)
 
     todo-md init
 
-## Edit config
+## Edit config (not yet implemented)
 
     todo-md edit
 

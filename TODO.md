@@ -1,7 +1,15 @@
 # TODO
 
+## 1.0
+
+## 2.0
+- Make it into electron app, maybe menubar app?
 - project title fallback to dirname when none given
 - handle nested todo
+- init command
+- edit command
+
+# PENDING
 - filter by tag
 
 # DONE
