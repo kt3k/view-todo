@@ -1,6 +1,7 @@
 import './globals'
 import 'bootstrap'
 import './project-section'
+import {div} from 'dom-gen'
 
 const PROJECT_API = '/api/projects'
 
@@ -15,9 +16,3 @@ function main() {
   })
 
 }
-
-function domGen(tagName) {
-  return opts => $('<' + tagName + '/>', opts)
-}
-
-const div = domGen('div')

@@ -1,4 +1,5 @@
 import './todo-section'
+import {div, ul, li, h3} from 'dom-gen'
 
 const {component, Coelement} = $.cc
 
@@ -9,11 +10,11 @@ export class TaskSection extends Coelement {
 
     const tasks = elem.data('tasks')
 
-    $('<h3/>').text(this.taskLabel()).appendTo(this.elem)
+    h3().text(this.taskLabel()).appendTo(this.elem)
 
-    const list = $('<ul/>').appendTo(this.elem)
+    const list = ul().appendTo(this.elem)
 
-    tasks.forEach(task => $('<li/>').text(task.title).appendTo(list))
+    tasks.forEach(task => li().text(task.title).appendTo(list))
   }
 
   /**
