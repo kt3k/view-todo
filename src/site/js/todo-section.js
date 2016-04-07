@@ -10,11 +10,10 @@ export class TaskSection extends Coelement {
 
     const tasks = elem.data('tasks')
 
-    h3().text(this.taskLabel()).appendTo(this.elem)
-
-    const list = ul().appendTo(this.elem)
-
-    tasks.forEach(task => li().text(task.title).appendTo(list))
+    this.elem.append(
+      h3().text(this.taskLabel()),
+      ul().append(tasks.map(task => li().text(task.title)))
+    )
   }
 
   /**

@@ -1,5 +1,5 @@
 import './todo-section'
-import {div, hr, small, span} from 'dom-gen'
+import {div, hr, small, span, h2} from 'dom-gen'
 
 const {component, Coelement} = $.cc
 
@@ -14,33 +14,24 @@ export default class ProjectSection extends Coelement {
      */
     this.project = elem.data('project')
 
-    this.setUp()
-  }
-
-  setUp() {
-
-    const project = this.project
-
-    const pageTitle = $('<h2/>').text(project.title).appendTo(this.elem)
-
-    project.configuration.tags.forEach(tag => {
-      const wrap = span().appendTo(pageTitle)
-      const sml = small().appendTo(wrap)
-      span().text(' ').appendTo(sml)
-      span({addClass: 'label label-info', text: tag}).appendTo(sml)
-    })
-
-    const container = div().addClass('container').appendTo(this.elem)
-
-    div({
-      data: { tasks: project.todos }
-    }).appendTo(container).cc.init('todo-section')
-
-    div({
-      data: { tasks: project.dones }
-    }).appendTo(container).cc.init('done-section')
-
-    hr().appendTo(this.elem)
+    this.elem.append(
+      h2().append(
+        this.project.title,
+        this.project.configuration.tags.map(tag =>
+          span().append(
+            small().append(
+              span().text(' '),
+              span().text(tag).addClass('label label-info')
+            )
+          )
+        )
+      ),
+      div().addClass('container').append(
+        div().data({ tasks: this.project.todos }).addClass('todo-section').cc.up(),
+        div().data({ tasks: this.project.dones }).addClass('done-section').cc.up()
+      ),
+      hr()
+    )
   }
 
 }
