@@ -1,4 +1,4 @@
-# view-todo v1.0.4
+# view-todo v1.1.0
 
 > TODO.md viewer app.
 
