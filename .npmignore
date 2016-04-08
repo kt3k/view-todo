@@ -2,12 +2,16 @@
 /node_modules
 /npm-debug.log
 
-# es6 src
+# src
 /src
-
-# test
 /spec
+/bulbofile.babel.js
 
 # nyc
 /coverage
 /.nyc_output
+
+# other
+/media
+/DOMAIN_MODELS.md
+/TODO.md
