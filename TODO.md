@@ -3,6 +3,7 @@
 ## 1.0
 
 ## 2.0
+- Test Frontend
 - Make it into electron app, maybe menubar app?
 - project title fallback to dirname when none given
 - handle nested todo
