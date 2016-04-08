@@ -1,7 +1,10 @@
+import getProjects from './app/get-projects'
+
 import {Server} from 'hapi'
 import inert from 'inert'
+import open from 'open'
+
 import path from 'path'
-import getProjects from './app/get-projects'
 
 /**
  * @param {string} configFilename The config filename
@@ -52,7 +55,11 @@ export function serve(configFilename, port) {
         process.exit(1)
       }
 
-      console.log('Server running at:', server.info.uri + '/site')
+      const siteUrl = server.info.uri + '/site'
+
+      console.log('Server running at:', siteUrl)
+      open(siteUrl)
+
     })
 
   })
