@@ -1,4 +1,5 @@
 import ProjectRepository from './project-repository'
+import path from 'path'
 const repository = new ProjectRepository()
 
 /**
@@ -20,16 +21,26 @@ export default class ProjectConfiguration {
    */
   getTodoPaths() {
 
-    if (/(todo|TODO)\.md$/.test(this.path)) {
+    const extname = path.extname(this.path)
+
+    if (extname === '.md' || extname === '.markdown') {
       return [this.path]
     }
 
-    if (/\/$/.test(this.path)) {
-      return [this.path + 'TODO.md', this.path + 'todo.md']
+    return [path.join(this.path, '/TODO.md'), path.join(this.path, '/todo.md')]
+
+  }
+
+  /**
+   * Gets the dirname which todo.md is supposed to be in.
+   * @return {string}
+   */
+  getTodoDirname() {
+    if (/(todo|TODO)\.md$/.test(this.path)) {
+      return path.basename(path.dirname(this.path))
     }
 
-    return [this.path + '/TODO.md', this.path + '/todo.md']
-
+    return path.basename(this.path)
   }
 
   /**

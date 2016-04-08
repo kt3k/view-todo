@@ -5,15 +5,16 @@
 ## 2.0
 - Test Frontend
 - Make it into electron app, maybe menubar app?
-- project title fallback to dirname when none given
 - handle nested todo
 - init command
 - edit command
+- Able to specify todo.conf.yml path
 
 # PENDING
 - filter by tag
 
 # DONE
+- project title fallback to dirname when none given
 - log which todo.md is used
 - add screenshot
 - Show remaining num of todos
