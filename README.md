@@ -51,13 +51,17 @@ You can access http://localhost:3000/site and will see something like:
 
 ![ss](http://kt3k.github.io/view-todo/media/todo-ss.png)
 
-## Init config (not yet implemented)
+## Init config file
 
     view-todo init
 
-## Edit config (not yet implemented)
+The above command touches `$HOME/.todo.conf.yml`.
+
+## Edit config file
 
     view-todo edit
+
+The above command opens `$HOME/.todo.conf.yml` with your `$EDITOR`.
 
 # License
 

@@ -6,14 +6,14 @@
 - Test Frontend
 - Make it into electron app, maybe menubar app?
 - handle nested todo
-- init command
-- edit command
 - Able to specify todo.conf.yml path
 
 # PENDING
 - filter by tag
 
 # DONE
+- init command
+- edit command
 - project title fallback to dirname when none given
 - log which todo.md is used
 - add screenshot

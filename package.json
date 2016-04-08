@@ -40,6 +40,7 @@
     ]
   },
   "dependencies": {
+    "editor": "^1.0.0",
     "hapi": "^13.0.0",
     "inert": "^3.2.0",
     "js-yaml": "^3.5.5",
