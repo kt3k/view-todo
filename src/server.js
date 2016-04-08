@@ -1,5 +1,6 @@
 import {Server} from 'hapi'
 import inert from 'inert'
+import path from 'path'
 import getProjects from './app/get-projects'
 
 /**
@@ -30,7 +31,7 @@ export function serve(configFilename, port) {
     server.route({
       method: 'GET',
       path: '/site/{param*}',
-      handler: { directory: { path: 'site', listing: true } }
+      handler: { directory: { path: `${path.dirname(__dirname)}/site`, listing: true } }
     })
 
     server.start(err => {
