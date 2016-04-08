@@ -1,9 +1,8 @@
 # TODO
 
-## 1.0
-
 ## 2.0
 - Test Frontend
+- Make it service type app
 - Make it into electron app, maybe menubar app?
 - handle nested todo
 - Able to specify todo.conf.yml path

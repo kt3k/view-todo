@@ -16,7 +16,7 @@ export default class ProjectSection extends Coelement {
 
     this.elem.append(
       h2().append(
-        this.project.title,
+        this.project.getTitle(),
         this.project.configuration.tags.map(tag =>
           ` <small><span class="label label-info">${tag}</span></small>`
         )

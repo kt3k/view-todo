@@ -5,6 +5,7 @@ import marked from 'marked'
 
 const todoFactory = new TodoFactory()
 
+
 /**
  * The factory for the project.
  */
@@ -69,6 +70,17 @@ export default class ProjectFactory {
 
   static tokenIsDoneStart(token) {
     return this.tokenIsH1(token) && /^DONE/.test(token.text)
+  }
+
+  createFromObject(obj) {
+
+    const ProjectConfigurationFactory = require('./project-configuration-factory').default
+
+    obj.todos = todoFactory.createFromObjectList(obj.todos)
+    obj.dones = todoFactory.createFromObjectList(obj.dones)
+    obj.configuration = new ProjectConfigurationFactory().createFromObject(obj.configuration)
+
+    return new Project(obj)
   }
 
 }

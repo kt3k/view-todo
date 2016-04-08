@@ -50,4 +50,22 @@ export default class TodoFactory {
     })
   }
 
+  /**
+   * @param {object[]} arr The list of object
+   * @return {Todo[]}
+   */
+  createFromObjectList(arr) {
+    return arr.map(obj => this.createFromObject(obj))
+  }
+
+  /**
+   * @param {object}
+   * @return {Todo}
+   */
+  createFromObject(obj) {
+    obj.subtodos = this.createFromObjectList(obj.subtodos)
+
+    return new Todo(obj)
+  }
+
 }

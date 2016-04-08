@@ -16,6 +16,11 @@ export default class ProjectConfigurationFactory {
     return new ProjectConfiguration({title, path, note, order, tags})
   }
 
-  createFromObjectList(objs) {
+  /**
+   * @param {object} obj The serialized object of configuration
+   * @return {ProjectConfiguration}
+   */
+  createFromObject(obj) {
+    return new ProjectConfiguration(obj)
   }
 }
