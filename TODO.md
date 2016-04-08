@@ -1,6 +1,7 @@
 # TODO
 
 ## 2.0
+- Show note if exists
 - Test Frontend
 - Make it service type app
 - Make it into electron app, maybe menubar app?
