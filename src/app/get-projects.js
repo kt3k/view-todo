@@ -11,14 +11,13 @@ export default (path) => {
 
   const paths = [path, `${process.env.PWD}/${path}`, `${process.env.HOME}/.${path}`]
 
-  for (let i = 1; i < paths.length; i++) {
-    let path = paths[i]
+  const available = paths.filter(path => fs.existsSync(path))
 
-    if (fs.existsSync(path)) {
-      return repository.getByPath(path).getProjects()
-    }
+  if (available.length === 0) {
+    throw new Error(`todo config file not found: ${JSON.stringify(paths)}`)
   }
 
-  throw new Error(`todo config file not found: ${JSON.stringify(paths)}`)
+  console.log('Using the config file:', available[0])
+  return repository.getByPath(available[0]).getProjects()
 
 }

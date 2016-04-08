@@ -14,6 +14,7 @@
 - filter by tag
 
 # DONE
+- log which todo.md is used
 - add screenshot
 - Show remaining num of todos
 - Make DONEs section closed at first
