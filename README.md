@@ -1,4 +1,4 @@
-# view-todo v1.1.0
+# view-todo v1.1.0 [![Circle CI](https://circleci.com/gh/kt3k/view-todo.svg?style=svg)](https://circleci.com/gh/kt3k/view-todo) [![codecov.io](https://codecov.io/github/kt3k/view-todo/coverage.svg?branch=master)](https://codecov.io/github/kt3k/view-todo?branch=master)
 
 > TODO.md viewer app.
 
