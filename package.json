@@ -1,10 +1,10 @@
 {
-  "name": "todo-md-cli",
+  "name": "view-todo",
   "version": "1.0.3",
   "description": "TODO.md viewer app.",
   "main": "lib/index.js",
   "bin": {
-    "todo-md": "bin/todo-md.js"
+    "view-todo": "bin/view-todo.js"
   },
   "scripts": {
     "start": "babel-node src/server.js",
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kt3k/todo-md.git"
+    "url": "git+https://github.com/kt3k/view-todo.git"
   },
   "keywords": [
     "todo",
@@ -30,9 +30,9 @@
   "author": "Yoshiya Hinosawa <stibium121@gmail.com> (https://twitter.com/kt3k)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kt3k/todo-md/issues"
+    "url": "https://github.com/kt3k/view-todo/issues"
   },
-  "homepage": "https://github.com/kt3k/todo-md#readme",
+  "homepage": "https://github.com/kt3k/view-todo#readme",
   "babel": {
     "presets": [
       "es2015",
@@ -63,6 +63,7 @@
     "gulp-front-matter": "^1.3.0",
     "gulp-wrap": "^0.11.0",
     "jquery": "^2.2.2",
+    "minimist": "^1.2.0",
     "mocha": "^2.4.5",
     "nunjucks": "^2.4.1",
     "nyc": "^6.1.1",

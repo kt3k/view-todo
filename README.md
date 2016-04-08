@@ -1,20 +1,20 @@
-# todo-md-cli v1.0.3
+# view-todo v1.0.3
 
 > TODO.md viewer app.
 
 # Install
 
-    npm install -g todo-md-cli
+    npm install -g view-todo
 
-The above installs `todo-md` command globally.
+The above installs `view-todo` command globally.
 
 ## todo.conf.yml
 
 Set up the config file `$HOME/.todo.conf.yml` like the following:
 
 ```yml
-title: todo-md
-path: /Users/kt3k/tmp/todo-md
+title: view-todo
+path: /Users/kt3k/tmp/view-todo
 note: todo management service
 tags: todo, javascript
 ---
@@ -31,7 +31,7 @@ tags: javascript, statis site generator
 
 Then you can run todo viewer server with the command:
 
-    todo-md
+    view-todo
 
 The above starts the server at http://localhost:3000/site/
 
@@ -39,24 +39,25 @@ The above starts the server at http://localhost:3000/site/
 
 ## Starts the server
 
-    todo-md
+    view-todo
 
 Example
 
-    $ todo-md
+    $ view-todo
+    Using the config file: /Users/kt3k/.todo.conf.yml
     Server running at: http://localhost:3000/site
 
 You can access http://localhost:3000/site and will see something like:
 
-![ss](http://kt3k.github.io/todo-md/media/todo-ss.png)
+![ss](http://kt3k.github.io/view-todo/media/todo-ss.png)
 
 ## Init config (not yet implemented)
 
-    todo-md init
+    view-todo init
 
 ## Edit config (not yet implemented)
 
-    todo-md edit
+    view-todo edit
 
 # License
 

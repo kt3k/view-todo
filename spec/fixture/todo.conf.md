@@ -1,5 +1,5 @@
-title: todo-md
-path: /Users/kt3k/tmp/todo-md
+title: view-todo
+path: /Users/kt3k/tmp/view-todo
 note: todo management service
 tags: todo, javascript
 ---
