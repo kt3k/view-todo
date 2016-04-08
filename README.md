@@ -1,4 +1,4 @@
-# todo-md-cli v1.0.2
+# todo-md-cli v1.0.3
 
 > TODO.md viewer app.
 

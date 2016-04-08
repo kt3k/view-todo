@@ -1,6 +1,6 @@
 {
   "name": "todo-md-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "TODO.md viewer app.",
   "main": "lib/index.js",
   "bin": {
