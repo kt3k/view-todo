@@ -26,7 +26,7 @@ export default class ProjectConfigurationCollection {
    * @private
    */
   sort() {
-    this.items.sort((x, y) => y.order - x.order)
+    this.items.sort((x, y) => x.order - y.order)
   }
 
   /**
