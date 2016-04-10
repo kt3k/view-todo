@@ -11,8 +11,8 @@ export class TaskSection extends Coelement {
     const tasks = elem.data('tasks')
 
     this.elem.append(
-      h3().append(`${this.taskLabel()}<sup>${tasks.length}</sup>`),
-      ul().append(tasks.map(task => li().text(task.title)))
+      h3(this.taskLabel(), sup(tasks.length)),
+      ul(tasks.map(task => li(task.title)))
     )
   }
 

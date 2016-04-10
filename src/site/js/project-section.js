@@ -15,15 +15,15 @@ export default class ProjectSection extends Coelement {
     this.project = elem.data('project')
 
     this.elem.append(
-      h2().append(
+      h2(
         this.project.getTitle(),
         this.project.configuration.tags.map(tag =>
           ` <small><span class="label label-info">${tag}</span></small>`
         )
       ),
-      div().addClass('container').append(
-        div().data({ tasks: this.project.todos }).addClass('todo-section').cc.up(),
-        div().data({ tasks: this.project.dones }).addClass('done-section').cc.up()
+      div({addClass: 'container'},
+        div({data: {tasks: this.project.todos}, addClass: 'todo-section'}).cc.up(),
+        div({data: {tasks: this.project.dones}, addClass: 'done-section'}).cc.up()
       ),
       hr()
     )
