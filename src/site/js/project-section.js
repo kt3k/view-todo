@@ -1,5 +1,5 @@
 import './todo-section'
-import {div, hr, h2} from 'dom-gen'
+import {div, hr, h2, sup} from 'dom-gen'
 
 const {component, Coelement} = $.cc
 
@@ -13,12 +13,15 @@ export default class ProjectSection extends Coelement {
      * @property {Project}
      */
     this.project = elem.data('project')
+    const project = this.project
 
     this.elem.append(
       h2(
         this.project.getTitle(),
+        sup(project.todos.length, sup(project.dones.length).addClass('gray-out')),
+        ' ',
         this.project.configuration.tags.map(tag =>
-          ` <small><span class="label label-info">${tag}</span></small>`
+          `<small><span class="label label-info">${tag}</span> </small>`
         )
       ),
       div({addClass: 'container'},

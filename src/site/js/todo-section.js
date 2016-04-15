@@ -24,6 +24,13 @@ export class TaskSection extends Coelement {
 
 @component('done-section')
 export class DoneSection extends TaskSection {
+
+  constructor(elem) {
+    super(elem)
+
+    elem.addClass('gray-out')
+  }
+
   taskLabel() {
     return 'DONE'
   }
@@ -31,6 +38,7 @@ export class DoneSection extends TaskSection {
 
 @component('todo-section')
 export class TodoSection extends TaskSection {
+
   taskLabel() {
     return 'TODO'
   }
