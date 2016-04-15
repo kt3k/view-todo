@@ -1,7 +1,7 @@
 import './todo-section'
 import {div, hr, h2, sup} from 'dom-gen'
 
-const {component, Coelement} = $.cc
+const {event, component, Coelement} = $.cc
 
 @component('project-section')
 export default class ProjectSection extends Coelement {
@@ -30,6 +30,11 @@ export default class ProjectSection extends Coelement {
       ),
       hr()
     )
+  }
+
+  @event('click', 'small')
+  onClick() {
+    global.alert(this.project.getTitle() + ' clicked!')
   }
 
 }

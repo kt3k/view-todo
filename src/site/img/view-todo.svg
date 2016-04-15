@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="250px" height="250px" viewBox="0 0 250 250" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7 (28169) - http://www.bohemiancoding.com/sketch -->
+    <title>view-todo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="artboard" transform="translate(-92.000000, -121.000000)">
+            <g id="view-todo" transform="translate(92.000000, 121.000000)">
+                <rect id="Rectangle-1" fill="#50D298" x="0" y="0" width="250" height="250"></rect>
+                <polygon id="Combined-Shape" fill="#E9F1C4" points="113.689424 216.738281 17 139.414595 58.3385518 83.6806139 105.848847 124.869141 178.01671 33 233 83.6806139"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

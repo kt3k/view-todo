@@ -11,7 +11,8 @@ asset('src/site/js/index.js')
   this.queue(file)
 }))
 
-asset('src/site/css/**/*')
-.base('src/site')
+asset('src/site/css/**/*').base('src/site')
+asset('src/site/img/**/*').base('src/site')
+asset('src/site/favicon.ico').base('src/site')
 
 dest('site')
