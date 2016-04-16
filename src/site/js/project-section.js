@@ -24,7 +24,7 @@ export default class ProjectSection extends Coelement {
           `<small><span class="label label-info">${tag}</span> </small>`
         )
       ),
-      div({addClass: 'container'},
+      div({addClass: 'container task-area task-area-hidden'},
         div({data: {tasks: this.project.todos}, addClass: 'todo-section'}).cc.up(),
         div({data: {tasks: this.project.dones}, addClass: 'done-section'}).cc.up()
       ),
@@ -32,9 +32,9 @@ export default class ProjectSection extends Coelement {
     )
   }
 
-  @event('click', 'small')
+  @event('mouseenter', 'h2')
   onClick() {
-    global.alert(this.project.getTitle() + ' clicked!')
+    this.elem.find('.task-area').removeClass('task-area-hidden')
   }
 
 }
