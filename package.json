@@ -67,7 +67,7 @@
     "gulp-wrap": "^0.11.0",
     "jquery": "^2.2.2",
     "mocha": "^2.4.5",
-    "nunjucks": "^2.4.1",
+    "nunjucks": "^2.4.2",
     "nyc": "^6.1.1",
     "souffle-cli": "^3.1.0",
     "through": "^2.3.8"
