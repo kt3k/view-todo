@@ -1,14 +1,15 @@
 import {asset, dest} from 'bulbo'
-import through from 'through'
+import through2 from 'through2'
 import browserify from 'browserify'
 
 asset('src/site/index.html')
 
 asset('src/site/js/index.js')
 .base('src/site')
-.pipe(through(function (file) {
+.pipe(through2(function (file, enc, callback) {
   file.contents = browserify(file.path).transform('babelify').bundle()
-  this.queue(file)
+  this.push(file)
+  callback()
 }))
 
 asset('src/site/css/**/*').base('src/site')

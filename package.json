@@ -56,7 +56,7 @@
     "babelify": "^7.2.0",
     "bootstrap": "^3.3.6",
     "browserify": "^13.0.0",
-    "bulbo": "^4.0.2",
+    "bulbo": "^4.2.3",
     "cc-event": "^2.0.2",
     "chai": "^3.5.0",
     "class-component": "^5.6.0",
@@ -70,7 +70,7 @@
     "nunjucks": "^2.4.2",
     "nyc": "^6.1.1",
     "souffle-cli": "^3.1.0",
-    "through": "^2.3.8"
+    "through2": "^2.0.1"
   },
   "souffle": {
     "globals": [
