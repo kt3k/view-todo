@@ -1,6 +1,9 @@
-import {asset, dest} from 'bulbo'
-import through2 from 'through2'
-import browserify from 'browserify'
+'use strict'
+
+const bulbo = require('bulbo')
+const asset = bulbo.asset
+const through2 = require('through2')
+const browserify = require('browserify')
 
 asset('src/site/index.html')
 
@@ -16,4 +19,4 @@ asset('src/site/css/**/*').base('src/site')
 asset('src/site/img/**/*').base('src/site')
 asset('src/site/favicon.ico').base('src/site')
 
-dest('site')
+bulbo.dest('site')
