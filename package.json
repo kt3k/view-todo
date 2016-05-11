@@ -59,7 +59,7 @@
     "bulbo": "^6.0.1",
     "cc-event": "^2.0.2",
     "chai": "^3.5.0",
-    "class-component": "^5.6.0",
+    "class-component": "^6.0.0",
     "codecov.io": "^0.1.6",
     "dom-gen": "^2.0.0",
     "es6-promise": "^3.1.2",
