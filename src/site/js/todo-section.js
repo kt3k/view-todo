@@ -1,16 +1,18 @@
-import './todo-section'
-import {div, ul, li, h3, sup} from 'dom-gen'
+const {div, ul, li, h3, sup} = require('dom-gen')
 
-const {component, Coelement} = $.cc
+const {component} = $.cc
 
-export class TaskSection extends Coelement {
-
-  constructor(elem) {
-    super(elem)
-
+/**
+ * TaskSection component.
+ */
+export class TaskSection {
+  /**
+   * @param {jQuery} elem
+   */
+  constructor (elem) {
     const tasks = elem.data('tasks')
 
-    this.elem.append(
+    elem.append(
       h3(this.taskLabel(), sup(tasks.length)),
       ul(tasks.map(task => li(task.title)))
     )
@@ -19,27 +21,25 @@ export class TaskSection extends Coelement {
   /**
    * @abstract
    */
-  taskLabel() {}
+  taskLabel () {}
 }
 
 @component('done-section')
 export class DoneSection extends TaskSection {
-
-  constructor(elem) {
+  constructor (elem) {
     super(elem)
 
     elem.addClass('gray-out')
   }
 
-  taskLabel() {
+  taskLabel () {
     return 'DONE'
   }
 }
 
 @component('todo-section')
-export class TodoSection extends TaskSection {
-
-  taskLabel() {
+export class TodoSection {
+  taskLabel () {
     return 'TODO'
   }
 }

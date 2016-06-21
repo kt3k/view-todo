@@ -1,40 +1,40 @@
-import './todo-section'
-import {div, hr, h2, sup} from 'dom-gen'
+require('./todo-section')
 
-const {event, component, Coelement} = $.cc
+const {div, hr, h2, sup} = require('dom-gen')
+
+const {on, component} = $.cc
 
 @component('project-section')
-export default class ProjectSection extends Coelement {
+class ProjectSection {
 
   constructor(elem) {
-    super(elem)
-
     /**
      * @property {Project}
      */
-    this.project = elem.data('project')
-    const project = this.project
+    const project = elem.data('project')
 
-    this.elem.append(
+    elem.append(
       h2(
-        this.project.getTitle(),
+        project.getTitle(),
         sup(project.todos.length, sup(project.dones.length).addClass('gray-out')),
         ' ',
-        this.project.configuration.tags.map(tag =>
+        project.configuration.tags.map(tag =>
           `<small><span class="label label-info">${tag}</span> </small>`
         )
       ),
       div({addClass: 'container task-area task-area-hidden'},
-        div({data: {tasks: this.project.todos}, addClass: 'todo-section'}).cc.up(),
-        div({data: {tasks: this.project.dones}, addClass: 'done-section'}).cc.up()
+        div({data: {tasks: project.todos}}).cc('todo-section'),
+        div({data: {tasks: project.dones}}).cc('done-section')
       ),
       hr()
     )
   }
 
-  @event('mouseenter', 'h2')
-  onClick() {
+  @on('mouseenter').at('h2')
+  onMouseenter() {
     this.elem.find('.task-area').removeClass('task-area-hidden')
   }
 
 }
+
+module.exports = ProjectSection
