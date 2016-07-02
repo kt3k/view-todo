@@ -12,13 +12,9 @@ const factory = new ProjectFactory()
 /**
  * The entry point.
  */
-const main = () => {
-  getProjects().then(projects => {
-    projects.forEach(project => {
-      div().data({project}).cc('project-section').appendTo('.main')
-    })
-  })
-}
+const main = () => getProjects().then(projects => {
+  $('.main').append(projects.map(project => div().data({project}).cc('project-section')))
+})
 
 /**
  * @return {Promise<Project[]>}
