@@ -11,11 +11,8 @@ const repository = new ProjectRepository()
 const fixturePath = `${path.dirname(__dirname)}/fixture/TODO.md`
 
 describe('ProjectRepository', () => {
-
   describe('getByPath', () => {
-
     it('gets the project from todo.md of the given path', () => {
-
       const configuration = new ProjectConfiguration({
         title: 'foo',
         path: fixturePath
@@ -25,9 +22,6 @@ describe('ProjectRepository', () => {
 
       expect(project).to.be.instanceof(Project)
       expect(project.title).to.equal('foo')
-
     })
-
   })
-
 })

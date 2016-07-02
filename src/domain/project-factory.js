@@ -5,17 +5,15 @@ import marked from 'marked'
 
 const todoFactory = new TodoFactory()
 
-
 /**
  * The factory for the project.
  */
 export default class ProjectFactory {
-
   /**
    * @param {string} markdown The markdown string
    * @param {ProjectConfiguration} configuration The configuration
    */
-  createFromMarkdown(markdown, configuration) {
+  createFromMarkdown (markdown, configuration) {
     return this.createFromTokens(marked.lexer(markdown), configuration)
   }
 
@@ -23,7 +21,7 @@ export default class ProjectFactory {
    * @param {object[]} tokens The parsed token object list of `marked` module
    * @param {ProjectConfiguration} configuration The configuration
    */
-  createFromTokens(tokens, configuration) {
+  createFromTokens (tokens, configuration) {
     const todos = []
     const dones = []
 
@@ -60,20 +58,19 @@ export default class ProjectFactory {
     })
   }
 
-  static tokenIsH1(token) {
+  static tokenIsH1 (token) {
     return token != null && token.type === 'heading' && token.depth === 1
   }
 
-  static tokenIsTodoStart(token) {
+  static tokenIsTodoStart (token) {
     return this.tokenIsH1(token) && /^TODO/.test(token.text)
   }
 
-  static tokenIsDoneStart(token) {
+  static tokenIsDoneStart (token) {
     return this.tokenIsH1(token) && /^DONE/.test(token.text)
   }
 
-  createFromObject(obj) {
-
+  createFromObject (obj) {
     const ProjectConfigurationFactory = require('./project-configuration-factory').default
 
     obj.todos = todoFactory.createFromObjectList(obj.todos)
@@ -82,5 +79,4 @@ export default class ProjectFactory {
 
     return new Project(obj)
   }
-
 }

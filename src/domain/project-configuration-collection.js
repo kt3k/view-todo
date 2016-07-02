@@ -2,11 +2,10 @@
  * The collection model for the project configurations.
  */
 export default class ProjectConfigurationCollection {
-
   /**
    * @param {ProjectConfiguration[]} configurations The project configurations
    */
-  constructor(configurations = []) {
+  constructor (configurations = []) {
     this.items = []
 
     this.push(...configurations)
@@ -16,7 +15,7 @@ export default class ProjectConfigurationCollection {
    * Pushes the configurations.
    * @param {ProjectConfiguration[]} configurations The project configurations
    */
-  push(...configurations) {
+  push (...configurations) {
     this.items.push(...configurations)
 
     this.sort()
@@ -25,15 +24,14 @@ export default class ProjectConfigurationCollection {
   /**
    * @private
    */
-  sort() {
+  sort () {
     this.items.sort((x, y) => x.order - y.order)
   }
 
   /**
    * @return {Project[]}
    */
-  getProjects() {
+  getProjects () {
     return this.items.map(conf => conf.getProject())
   }
-
 }

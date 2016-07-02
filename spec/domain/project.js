@@ -8,20 +8,15 @@ const fixturePath = `${path.dirname(__dirname)}/fixture`
 const fixtureTodoPath = fixturePath + '/TODO.md'
 
 describe('Project', () => {
-
   describe('getTitle', () => {
-
     it('returns title if exists', () => {
-
       const conf = new ProjectConfiguration({path: fixturePath, title: 'foo'})
       const project = conf.getProject()
 
       expect(project.getTitle()).to.equal('foo')
-
     })
 
     it('returns dirname if title property does not exist', () => {
-
       const conf0 = new ProjectConfiguration({path: fixturePath})
       const project0 = conf0.getProject()
 
@@ -31,9 +26,6 @@ describe('Project', () => {
       const project1 = conf1.getProject()
 
       expect(project1.getTitle()).to.equal('fixture')
-
     })
-
   })
-
 })

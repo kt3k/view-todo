@@ -10,11 +10,8 @@ import {expect} from 'chai'
 const factory = new ProjectFactory()
 
 describe('ProjectFactory', () => {
-
   describe('createFromMarkdown', () => {
-
     it('creates a project from the markdown string and configuration', () => {
-
       const configuration = new ProjectConfiguration({title: 'foo', path: '/home/user/project'})
 
       const project = factory.createFromMarkdown(fs.readFileSync(`${path.dirname(__dirname)}/fixture/TODO.md`).toString(), configuration)
@@ -26,9 +23,6 @@ describe('ProjectFactory', () => {
       expect(project.dones).to.have.length(1)
       expect(project.todos).to.be.instanceof(Array)
       expect(project.todos).to.have.length(4)
-
     })
-
   })
-
 })

@@ -1,4 +1,4 @@
-const {div, ul, li, h3, sup} = require('dom-gen')
+const {ul, li, h3, sup} = require('dom-gen')
 
 const {component} = $.cc
 

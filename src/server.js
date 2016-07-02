@@ -10,14 +10,12 @@ import path from 'path'
  * @param {string} configFilename The config filename
  * @param {number} port The port number
  */
-export function serve(configFilename, port) {
-
+export function serve (configFilename, port) {
   const server = new Server()
 
   server.connection({port})
 
   server.register(inert, err => {
-
     if (err) {
       console.log(err.stack)
       process.exit(1)
@@ -44,12 +42,9 @@ export function serve(configFilename, port) {
       }
 
       try {
-
         // checks if the config file is ok, does not use the returns projects object
         getProjects(configFilename)
-
       } catch (e) {
-
         console.log(e.stack)
 
         process.exit(1)
@@ -59,9 +54,6 @@ export function serve(configFilename, port) {
 
       console.log('Server running at:', siteUrl)
       open(siteUrl)
-
     })
-
   })
-
 }

@@ -12,7 +12,7 @@ export default class ProjectConfigurationRepository {
    * @param {string} path The path
    * @return {ProjectConfigurationCollection}
    */
-  getByPath(path) {
+  getByPath (path) {
     const configurations = new ProjectConfigurationCollection()
 
     yaml.loadAll(fs.readFileSync(path), obj => {

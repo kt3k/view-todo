@@ -22,8 +22,7 @@ main(argv)
 /**
  * @param {object} argv The minimist parsed opts
  */
-function main(argv) {
-
+function main (argv) {
   switch (getCommand(argv._)) {
     case COMMAND.SERVE:
       serve(CONFIG_FILE, PORT)
@@ -41,8 +40,7 @@ function main(argv) {
   }
 }
 
-function getCommand(args) {
-
+function getCommand (args) {
   if (args == null || args.length === 0) {
     return COMMAND.SERVE
   }
@@ -56,5 +54,4 @@ function getCommand(args) {
   }
 
   return COMMAND.UNKNOWN
-
 }

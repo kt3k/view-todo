@@ -8,12 +8,10 @@ import fs from 'fs'
  * The repository for project.
  */
 export default class ProjectRepository {
-
   /**
    * @param {ProjectConfiguration} configuration The configuration
    */
-  getByConfiguration(configuration) {
-
+  getByConfiguration (configuration) {
     const todoPaths = configuration.getTodoPaths()
 
     let markdown = null

@@ -6,11 +6,8 @@ import {expect} from 'chai'
 const factory = new ProjectConfigurationFactory()
 
 describe('ProjectConfigurationFactory', () => {
-
   describe('createFromDslObject', () => {
-
     it('creates a project configuration from the dsl object', () => {
-
       const conf = factory.createFromDslObject({
         title: 'foo',
         path: '/home/user/who/foo',
@@ -23,9 +20,6 @@ describe('ProjectConfigurationFactory', () => {
       expect(conf.path).to.equal('/home/user/who/foo')
       expect(conf.note).to.equal('This is a sample.')
       expect(conf.tags).to.eql(['bar baz', 'spam'])
-
     })
-
   })
-
 })

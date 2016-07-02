@@ -5,14 +5,12 @@ const getLast = (array) => {
 }
 
 export default class TodoFactory {
-
   /**
    * @param {object[]} tokens The parsed marked tokens
    * @param {boolean} completed True iff completed
    * @return {Todo[]}
    */
-  createFromTokens(tokens, completed) {
-
+  createFromTokens (tokens, completed) {
     const rootList = []
     const listStack = []
 
@@ -31,7 +29,6 @@ export default class TodoFactory {
         // This is todo
         getLast(listStack).push(this.createFromTextToken(token))
       }
-
     })
 
     return rootList
@@ -42,7 +39,7 @@ export default class TodoFactory {
    * @param {boolean} completed True iff completed
    * @return {Todo}
    */
-  createFromTextToken(token, completed) {
+  createFromTextToken (token, completed) {
     return new Todo({
       title: token.text,
       completed: completed,
@@ -54,7 +51,7 @@ export default class TodoFactory {
    * @param {object[]} arr The list of object
    * @return {Todo[]}
    */
-  createFromObjectList(arr) {
+  createFromObjectList (arr) {
     return arr.map(obj => this.createFromObject(obj))
   }
 
@@ -62,10 +59,9 @@ export default class TodoFactory {
    * @param {object}
    * @return {Todo}
    */
-  createFromObject(obj) {
+  createFromObject (obj) {
     obj.subtodos = this.createFromObjectList(obj.subtodos)
 
     return new Todo(obj)
   }
-
 }
