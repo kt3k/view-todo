@@ -38,7 +38,7 @@ export class DoneSection extends TaskSection {
 }
 
 @component('todo-section')
-export class TodoSection {
+export class TodoSection extends TaskSection {
   taskLabel () {
     return 'TODO'
   }
