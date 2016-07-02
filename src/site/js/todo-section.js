@@ -1,11 +1,11 @@
-const {ul, li, h3, sup} = require('dom-gen')
+const {ul, li, i} = require('dom-gen')
 
 const {component} = $.cc
 
 /**
  * TaskSection component.
  */
-export class TaskSection {
+class TaskSection {
   /**
    * @param {jQuery} elem
    */
@@ -13,33 +13,27 @@ export class TaskSection {
     const tasks = elem.data('tasks')
 
     elem.append(
-      h3(this.taskLabel(), sup(tasks.length)),
-      ul(tasks.map(task => li(task.title)))
+      ul(tasks.map(task => li(this.icon(), ' ', task.title)))
     )
   }
-
-  /**
-   * @abstract
-   */
-  taskLabel () {}
 }
 
-@component('done-section')
-export class DoneSection extends TaskSection {
+void @component('done-section')
+class DoneSection extends TaskSection {
   constructor (elem) {
     super(elem)
 
     elem.addClass('gray-out')
   }
 
-  taskLabel () {
-    return 'DONE'
+  icon() {
+    return i().addClass('fa fa-check-square-o')
   }
 }
 
-@component('todo-section')
-export class TodoSection extends TaskSection {
-  taskLabel () {
-    return 'TODO'
+void @component('todo-section')
+class TodoSection extends TaskSection {
+  icon() {
+    return i().addClass('fa fa-thumb-tack')
   }
 }

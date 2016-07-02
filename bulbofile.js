@@ -17,6 +17,7 @@ asset('src/site/js/index.js')
 
 asset('src/site/css/**/*').base('src/site')
 asset('src/site/img/**/*').base('src/site')
+asset('src/site/fonts/**/*').base('src/site')
 asset('src/site/favicon.ico').base('src/site')
 
 bulbo.dest('site')

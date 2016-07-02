@@ -16,3 +16,37 @@
   transform: scale(1, 0);
   opacity: 0;
 }
+
+.todo-title {
+  font-size: 7.5em;
+  font-weight: bold;
+}
+
+.todo-label {
+  margin-right: 15px;
+}
+
+.tag-label {
+  margin-right: 15px;
+}
+
+.tag-label:hover {
+  color: #1199ff;
+}
+
+.todo-section ul,
+.done-section ul {
+  padding-left: 3px;
+  list-style-type: none;
+}
+
+.todo-section ul li,
+.done-section ul li {
+  font-size: 1.1em;
+  font-weight: normal;
+  margin-bottom: 7px;
+  padding: 7px;
+  border: solid 1px #999;
+  border-radius: 7px;
+  box-shadow: 0 0 4px #999;
+}
