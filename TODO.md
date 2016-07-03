@@ -1,11 +1,15 @@
 # TODO
 
+- feat(view): create "tags" page
+- feat(view): create "details" page for a project
+- feat(view): create "projects" page
+
 ## 2.0
 - Show note if exists
 - Test Frontend
 - Make it service type app
 - Make it into electron app, maybe menubar app?
-- handle nested todo
+- feat(heading): handle the 2nd level heading
 - Able to specify todo.conf.yml path
 
 # PENDING
