@@ -4,7 +4,8 @@
   "description": "TODO.md viewer app.",
   "main": "lib/index.js",
   "bin": {
-    "view-todo": "bin/view-todo.js"
+    "view-todo": "bin/view-todo.js",
+    "vt": "bin/view-todo.js"
   },
   "scripts": {
     "start": "babel-node src/server.js",
