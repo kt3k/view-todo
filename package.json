@@ -1,6 +1,6 @@
 {
   "name": "view-todo",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "TODO.md viewer app.",
   "main": "lib/index.js",
   "bin": {
