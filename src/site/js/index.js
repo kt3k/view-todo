@@ -1,5 +1,5 @@
 import './globals'
-import './project-section'
+import './components/project-section'
 import ProjectFactory from '../../domain/project-factory'
 
 import 'bootstrap'
