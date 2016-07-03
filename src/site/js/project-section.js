@@ -13,7 +13,7 @@ class ProjectSection {
     const project = elem.data('project')
 
     elem.append(
-      h2('TODO').addClass('todo-title'),
+      h2('TODO ' + project.todos.length).addClass('todo-title'),
       p(`<i class="fa fa-bookmark"></i> ${project.getTitle()} - ${project.path}`),
       p(
         span(
