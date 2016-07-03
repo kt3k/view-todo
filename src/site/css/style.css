@@ -54,6 +54,7 @@
 
 .done-section button {
   background-color: transparent;
+  outline: none;
 }
 
 .done-section button:hover {
