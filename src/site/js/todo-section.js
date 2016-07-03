@@ -1,6 +1,6 @@
-const {ul, li, i} = require('dom-gen')
+const {ul, li, i, button} = require('dom-gen')
 
-const {component} = $.cc
+const {on, component} = $.cc
 
 /**
  * TaskSection component.
@@ -10,11 +10,12 @@ class TaskSection {
    * @param {jQuery} elem
    */
   constructor (elem) {
-    const tasks = elem.data('tasks')
+    this.tasks = elem.data('tasks')
+    this.elem = elem
+  }
 
-    elem.append(
-      ul(tasks.map(task => li(this.icon(), ' ', task.title)))
-    )
+  appendTaskList (elem) {
+    return ul(this.tasks.map(task => li(this.icon(), ' ', task.title))).appendTo(elem)
   }
 }
 
@@ -23,7 +24,19 @@ class DoneSection extends TaskSection {
   constructor (elem) {
     super(elem)
 
-    elem.addClass('gray-out')
+    if (this.tasks.length > 0) {
+      this.appendShowMoreBtn(elem)
+      this.appendTaskList(elem).addClass('task-list task-list-hidden gray-out')
+    }
+  }
+
+  appendShowMoreBtn (elem) {
+    button(i().addClass('fa fa-check-square-o'), ' ', 'Show dones').appendTo(elem)
+  }
+
+  @on('click').at('button')
+  onButtonClick () {
+    this.elem.find('ul').toggleClass('task-list-hidden')
   }
 
   icon() {
@@ -33,6 +46,12 @@ class DoneSection extends TaskSection {
 
 void @component('todo-section')
 class TodoSection extends TaskSection {
+  constructor (elem) {
+    super(elem)
+
+    this.appendTaskList(elem).addClass('task-list')
+  }
+
   icon() {
     return i().addClass('fa fa-thumb-tack')
   }
