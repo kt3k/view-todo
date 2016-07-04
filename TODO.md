@@ -1,7 +1,6 @@
 # TODO
 
 - feat(view): create "tags" page
-- feat(view): create "details" page for a project
 - feat(view): create "projects" page
 
 ## 2.0
@@ -16,6 +15,9 @@
 - filter by tag
 
 # DONE
+- feat(router): create router
+- feat(view): create "project" page
+- feat(view): create "all" page
 - init command
 - edit command
 - project title fallback to dirname when none given

@@ -39,7 +39,7 @@ class DoneSection extends TaskSection {
     this.elem.find('ul').toggleClass('task-list-hidden')
   }
 
-  icon() {
+  icon () {
     return i().addClass('fa fa-check-square-o')
   }
 }
@@ -52,7 +52,7 @@ class TodoSection extends TaskSection {
     this.appendTaskList(elem).addClass('task-list')
   }
 
-  icon() {
+  icon () {
     return i().addClass('fa fa-thumb-tack')
   }
 }

@@ -1,4 +1,5 @@
 import Project from './project'
+const ProjectCollection = require('./project-collection')
 import TodoFactory from './todo-factory'
 
 import marked from 'marked'
@@ -8,7 +9,7 @@ const todoFactory = new TodoFactory()
 /**
  * The factory for the project.
  */
-export default class ProjectFactory {
+class ProjectFactory {
   /**
    * @param {string} markdown The markdown string
    * @param {ProjectConfiguration} configuration The configuration
@@ -79,4 +80,10 @@ export default class ProjectFactory {
 
     return new Project(obj)
   }
+
+  createCollectionFromArray (arr) {
+    return new ProjectCollection(arr.map(obj => this.createFromObject(obj)))
+  }
 }
+
+module.exports = ProjectFactory
