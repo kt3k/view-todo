@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg width="250px" height="250px" viewBox="0 0 250 250" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 3.7 (28169) - http://www.bohemiancoding.com/sketch -->
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
     <title>view-todo</title>
     <desc>Created with Sketch.</desc>
-    <defs></defs>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="250" height="250"></rect>
+    </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="artboard" transform="translate(-92.000000, -121.000000)">
-            <g id="view-todo" transform="translate(92.000000, 121.000000)">
-                <rect id="Rectangle-1" fill="#50D298" x="0" y="0" width="250" height="250"></rect>
-                <polygon id="Combined-Shape" fill="#E9F1C4" points="113.689424 216.738281 17 139.414595 58.3385518 83.6806139 105.848847 124.869141 178.01671 33 233 83.6806139"></polygon>
+        <g id="Artboard-4" transform="translate(-89.000000, -106.000000)">
+            <g id="view-todo" transform="translate(89.000000, 106.000000)">
+                <g id="Combined-Shape-+-Group-+-Group-Mask">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#1199FF" xlink:href="#path-1"></use>
+                    <g id="Group" mask="url(#mask-2)" stroke-linecap="square" stroke="#FFFFFF" stroke-width="13">
+                        <g transform="translate(-76.000000, 9.000000)" id="Line">
+                            <path d="M128.5,206.5 L374.5,0.5"></path>
+                            <path d="M128.5,206.5 L0.5,83.5"></path>
+                        </g>
+                    </g>
+                    <g id="Group" mask="url(#mask-2)" stroke-linecap="square" stroke="#FFFFFF" stroke-width="13">
+                        <g transform="translate(-76.000000, -65.000000)" id="Line">
+                            <path d="M128.5,206.5 L374.5,0.5"></path>
+                            <path d="M128.5,206.5 L0.5,83.5"></path>
+                        </g>
+                    </g>
+                </g>
             </g>
         </g>
     </g>
