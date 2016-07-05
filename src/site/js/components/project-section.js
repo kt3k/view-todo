@@ -1,4 +1,6 @@
 require('./todo-section')
+require('./project-status-section')
+require('./project-title-section')
 
 const {i, div, hr, h2, span, p} = require('dom-gen')
 
@@ -14,20 +16,8 @@ class ProjectSection {
 
     elem.append(
       h2('TODO ' + project.todos.length).addClass('todo-title'),
-      p(`<i class="fa fa-bookmark"></i> ${project.getTitle()} - ${project.path}`),
-      p(
-        span(
-          i().addClass('fa fa-thumb-tack'), ' ',
-          project.todos.length
-        ).addClass('todo-label'),
-        span(
-          i().addClass('fa fa-check-square-o'), ' ',
-          project.dones.length
-        ).addClass('todo-label'),
-        project.configuration.tags.map(tag =>
-          `<span class="tag-label"><i class="fa fa-tag"></i> ${tag}</span>`
-        ).join(' ')
-      ),
+      p({data: {project}}).cc('project-title-section'),
+      p({data: {project}}).cc('project-status-section'),
       div({data: {tasks: project.todos}}).cc('todo-section'),
       div({data: {tasks: project.dones}}).cc('done-section'),
       hr()

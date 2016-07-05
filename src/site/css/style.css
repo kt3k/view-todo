@@ -35,7 +35,8 @@
 }
 
 .tag-label:hover {
-  color: #1199ff;
+  color: #19f;
+  cursor: pointer;
 }
 
 .todo-section ul,
@@ -67,4 +68,27 @@
 
 .task-list-hidden {
   display: none;
+}
+
+.back-btn {
+  font-size: 1.1em;
+  margin-top: 70px;
+}
+
+.back-btn:hover {
+  color: #19f;
+  cursor: pointer;
+}
+
+.back-nav-area {
+  margin-top: 20px;
+}
+
+.project-simple-section .project-title-section {
+  font-size: 4em;
+  font-weight: bold;
+}
+.project-simple-section .project-title-section:hover {
+  color: #19f;
+  cursor: pointer;
 }

@@ -1,12 +1,15 @@
 require('./globals')
 require('./components/project-section')
+require('./components/project-simple-section')
 require('./components/router')
+
+const {fa} = require('./util')
 
 const ProjectRepositoryFe = require('../../domain/project-repository-fe')
 
 require('bootstrap')
 
-const {div} = require('dom-gen')
+const {span, hr, div, a, i, p} = require('dom-gen')
 
 const {emit, on, component} = $.cc
 
@@ -15,9 +18,9 @@ const repository = new ProjectRepositoryFe()
 void @component('main')
 class Main {
   constructor () {
-    const router = $(window).cc.init('router')
+    const router = $(window).cc('router')
 
-    setTimeout(() => router.onHashchange())
+    setTimeout(() => router.trigger('hashchange'))
   }
 
   /**
@@ -36,8 +39,11 @@ class Main {
   @emit('page-empty')
   allProjects () {
     this.getProjects().then(projects => {
+      this.appendBackBtn('All tags', '#tags')
+      this.elem.append(hr())
+
       projects.forEach(project => {
-        this.appendProjectSection(project)
+        this.appendProjectSimpleSection(project)
       })
     })
   }
@@ -46,20 +52,39 @@ class Main {
   @emit('page-empty')
   singleProject(e, title) {
     this.getProjects().then(projects => {
-      console.log(projects)
-      window.projects = projects
+      this.appendBackBtn('All projects', '#all')
+
       const project = projects.getByName(title)
-      console.log(project)
 
       this.appendProjectSection(project)
     })
   }
 
   /**
-   * @private
+   * @param {string} name The name of the button
+   * @param {string} url The back url
+   */
+  appendBackBtn (name, url) {
+    this.elem.append(
+      div({addClass: 'back-nav-area'},
+        span(fa('arrow-left'), ' ', name).addClass('back-btn').click(() => {
+          location.href = url
+        })
+      )
+    )
+  }
+
+  /**
    * @param {Project}
    */
   appendProjectSection (project) {
     this.elem.append(div().data({project}).cc('project-section'))
+  }
+
+  /**
+   * @param {Project}
+   */
+  appendProjectSimpleSection (project) {
+    this.elem.append(div().data({project}).cc('project-simple-section'))
   }
 }
