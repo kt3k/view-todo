@@ -20,8 +20,8 @@ const service = new ProjectTagSetService()
 
 void @component('main')
 class Main {
-  constructor () {
-    const router = $(window).cc('router')
+  constructor (elem) {
+    const router = $(window).data({target: elem}).cc('router')
 
     setTimeout(() => router.trigger('hashchange'))
   }
@@ -66,7 +66,7 @@ class Main {
   @emit('page-empty')
   singleProject (e, title) {
     this.getProjects().then(projects => {
-      this.appendBackBtn('All projects', '#all')
+      this.appendBackBtn('All projects', '#projects')
       this.elem.append(hr())
 
       const project = projects.getByName(title)
@@ -79,10 +79,33 @@ class Main {
   @emit('page-empty')
   showTagsPage () {
     this.getTags().then(tags => {
-      this.appendBackBtn('All projects', '#all')
+      tags.sort()
+
+      this.appendBackBtn('All projects', '#projects')
       this.elem.append(hr())
 
       this.appendTagsSection(tags)
+    })
+  }
+
+  /**
+   * @param {object} e The event object
+   * @param {string} name The tag name
+   */
+  @on('page-single-tag')
+  @emit('page-empty')
+  showSingleTagPage (e, name) {
+    this.getTags().then(tags => {
+      const tag = tags.getByName(name)
+
+      console.log(tag)
+
+      this.appendBackBtn('All tags', '#tags')
+      this.elem.append(hr())
+
+      tag.projects.forEach(project => {
+        this.appendProjectSimpleSection(project)
+      })
     })
   }
 

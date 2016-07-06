@@ -47,6 +47,13 @@ class ProjectCollection {
   getTags () {
     return factory.createCollectionFromProjectCollection(this)
   }
+
+  /**
+   * Returns the length.
+   */
+  get length () {
+    return this.projects.length
+  }
 }
 
 module.exports = ProjectCollection

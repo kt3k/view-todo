@@ -6,6 +6,8 @@ class TagFactory {
    * @param {ProjectCollection} projects The project collection
    */
   createCollectionFromProjectCollection (projects) {
+    const ProjectCollection = require('./project-collection')
+
     const mapping = {}
     const tags = []
 
@@ -18,13 +20,10 @@ class TagFactory {
     })
 
     Object.keys(mapping).forEach(name => {
-      const projects = mapping[name]
+      const projects = new ProjectCollection(mapping[name])
 
       tags.push(new Tag({name, projects}))
     })
-
-    console.log('tags =')
-    console.log(tags)
 
     return new TagCollection(tags)
   }

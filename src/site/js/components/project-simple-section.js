@@ -16,7 +16,7 @@ class ProjectSimpleSection {
 
     elem.append(
       p({data: {project}}).cc('project-title-section').click(e => {
-        window.location.href = '#project/' + project.getTitle()
+        window.location.href = '#projects/' + project.getTitle()
       }),
       p({data: {project}}).cc('project-status-section'),
       hr()

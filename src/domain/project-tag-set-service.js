@@ -5,7 +5,7 @@ class ProjectTagSetService {
   /**
    * @param {ProjectCollection}
    */
-  setTags(projects) {
+  setTags (projects) {
     const tags = projects.getTags()
 
     projects.forEach(project => {

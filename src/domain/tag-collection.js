@@ -7,8 +7,6 @@ class TagCollection {
 
     this.dict = {}
 
-    console.log(tags)
-
     this.tags.forEach(tag => {
       this.dict[tag.name] = tag
     })
@@ -36,6 +34,14 @@ class TagCollection {
    */
   map (func) {
     return this.tags.map(func)
+  }
+
+  forEach (func) {
+    this.tags.forEach(func)
+  }
+
+  sort () {
+    this.tags.sort((x, y) => y.projects.length - x.projects.length)
   }
 }
 
