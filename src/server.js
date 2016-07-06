@@ -25,7 +25,7 @@ export function serve (configFilename, port) {
       method: 'GET',
       path: '/api/projects',
       handler: (request, reply) => {
-        reply(getProjects(configFilename))
+        reply(getProjects(configFilename).projects)
       }
     })
 
@@ -42,7 +42,7 @@ export function serve (configFilename, port) {
       }
 
       try {
-        // checks if the config file is ok, does not use the returns projects object
+        // checks if the config file is ok, does not use the returned projects object
         getProjects(configFilename)
       } catch (e) {
         console.log(e.stack)

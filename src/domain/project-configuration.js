@@ -6,6 +6,13 @@ const repository = new ProjectRepository()
  * The project configuration model.
  */
 export default class ProjectConfiguration {
+  /**
+   * @param {string} [title] The title of the proejct
+   * @param {string} path The path of the project or the project's todo.md file
+   * @param {string} [note] The additional note for the project
+   * @param {number} [order] The order of the project in the listing
+   * @param {string[]} tags The tag labels
+   */
   constructor ({title, path, note, order, tags}) {
     this.title = title
     this.path = path

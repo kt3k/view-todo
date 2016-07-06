@@ -1,3 +1,5 @@
+const ProjectCollection = require('./project-collection')
+
 /**
  * The collection model for the project configurations.
  */
@@ -32,6 +34,6 @@ export default class ProjectConfigurationCollection {
    * @return {Project[]}
    */
   getProjects () {
-    return this.items.map(conf => conf.getProject())
+    return new ProjectCollection(this.items.map(conf => conf.getProject()))
   }
 }

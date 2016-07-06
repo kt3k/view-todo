@@ -1,7 +1,6 @@
 # TODO
 
 - feat(view): create "tags" page
-- feat(view): create "projects" page
 
 ## 2.0
 - Show note if exists
@@ -15,6 +14,8 @@
 - filter by tag
 
 # DONE
+- create tag model
+- feat(view): create "projects" page
 - feat(router): create router
 - feat(view): create "project" page
 - feat(view): create "all" page

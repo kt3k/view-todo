@@ -6,7 +6,7 @@ import yaml from 'js-yaml'
 
 const factory = new ProjectConfigurationFactory()
 
-export default class ProjectConfigurationRepository {
+class ProjectConfigurationRepository {
 
   /**
    * @param {string} path The path
@@ -23,3 +23,5 @@ export default class ProjectConfigurationRepository {
   }
 
 }
+
+module.exports = ProjectConfigurationRepository

@@ -1,7 +1,7 @@
 /**
  * The project model.
  */
-export default class Project {
+class Project {
   /**
    * @param {string} title The title
    * @param {string} path The path
@@ -29,3 +29,5 @@ export default class Project {
     return this.configuration.getTodoDirname()
   }
 }
+
+module.exports = Project
