@@ -12,6 +12,8 @@ class ProjectStatusSection {
      */
     const project = elem.data('project')
 
+    console.log(project)
+
     elem.append(
       span(
         fa('thumb-tack'), ' ', project.todos.length
@@ -19,8 +21,8 @@ class ProjectStatusSection {
       span(
         fa('check-square-o'), ' ', project.dones.length
       ).addClass('todo-label'),
-      project.configuration.tags.map(tag =>
-        `<span class="tag-label"><i class="fa fa-tag"></i> ${tag}</span>`
+      project.tags.map(tag =>
+        `<span class="tag-label"><i class="fa fa-tag"></i> ${tag.name} (${tag.projects.length})</span>`
       ).join(' ')
     )
   }

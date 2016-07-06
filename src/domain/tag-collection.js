@@ -7,6 +7,8 @@ class TagCollection {
 
     this.dict = {}
 
+    console.log(tags)
+
     this.tags.forEach(tag => {
       this.dict[tag.name] = tag
     })
@@ -17,7 +19,7 @@ class TagCollection {
    * @param {string} name The tag name
    */
   getByName (name) {
-    return this.tags[name]
+    return this.dict[name]
   }
 
   /**
@@ -26,6 +28,14 @@ class TagCollection {
    */
   getByNames (names) {
     return new TagCollection(names.map(name => this.getByName(name)).filter(x => x != null))
+  }
+
+  /**
+   * Maps the tags by the function.
+   * @return {Array}
+   */
+  map (func) {
+    return this.tags.map(func)
   }
 }
 

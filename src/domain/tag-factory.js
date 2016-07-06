@@ -23,6 +23,9 @@ class TagFactory {
       tags.push(new Tag({name, projects}))
     })
 
+    console.log('tags =')
+    console.log(tags)
+
     return new TagCollection(tags)
   }
 }

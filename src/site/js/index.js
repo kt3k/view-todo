@@ -6,6 +6,7 @@ require('./components/router')
 const {fa} = require('./util')
 
 const ProjectRepositoryFe = require('../../domain/project-repository-fe')
+const ProjectTagSetService = require('../../domain/project-tag-set-service')
 
 require('bootstrap')
 
@@ -14,6 +15,7 @@ const {span, hr, div} = require('dom-gen')
 const {emit, on, component} = $.cc
 
 const repository = new ProjectRepositoryFe()
+const service = new ProjectTagSetService()
 
 void @component('main')
 class Main {
@@ -27,7 +29,18 @@ class Main {
    * @return {Promise<ProjectCollection>}
    */
   getProjects () {
-    return repository.getAll()
+    return repository.getAll().then(projects => {
+      service.setTags(projects)
+
+      return projects
+    })
+  }
+
+  /**
+   * @return {TagCollection}
+   */
+  getTags () {
+    return getProjects().then(projects => projects.getTags())
   }
 
   @on('page-empty')
