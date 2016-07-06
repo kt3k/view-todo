@@ -84,11 +84,13 @@
   margin-top: 20px;
 }
 
-.project-simple-section .project-title-section {
+.project-simple-section .project-title-section,
+.tags-section .tag-title-section {
   font-size: 4em;
   font-weight: bold;
 }
-.project-simple-section .project-title-section:hover {
+.project-simple-section .project-title-section:hover,
+.tags-section .tag-title-section:hover {
   color: #19f;
   cursor: pointer;
 }

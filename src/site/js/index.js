@@ -1,6 +1,7 @@
 require('./globals')
 require('./components/project-section')
 require('./components/project-simple-section')
+require('./components/tags-section')
 require('./components/router')
 
 const {fa} = require('./util')
@@ -40,7 +41,7 @@ class Main {
    * @return {TagCollection}
    */
   getTags () {
-    return getProjects().then(projects => projects.getTags())
+    return this.getProjects().then(projects => projects.getTags())
   }
 
   @on('page-empty')
@@ -66,10 +67,22 @@ class Main {
   singleProject (e, title) {
     this.getProjects().then(projects => {
       this.appendBackBtn('All projects', '#all')
+      this.elem.append(hr())
 
       const project = projects.getByName(title)
 
       this.appendProjectSection(project)
+    })
+  }
+
+  @on('page-tags')
+  @emit('page-empty')
+  showTagsPage () {
+    this.getTags().then(tags => {
+      this.appendBackBtn('All projects', '#all')
+      this.elem.append(hr())
+
+      this.appendTagsSection(tags)
     })
   }
 
@@ -88,16 +101,23 @@ class Main {
   }
 
   /**
-   * @param {Project}
+   * @param {Project} project The project
    */
   appendProjectSection (project) {
     this.elem.append(div().data({project}).cc('project-section'))
   }
 
   /**
-   * @param {Project}
+   * @param {Project} project The project
    */
   appendProjectSimpleSection (project) {
     this.elem.append(div().data({project}).cc('project-simple-section'))
+  }
+
+  /**
+   * @param {Tags} tags
+   */
+  appendTagsSection (tags) {
+    this.elem.append(div().data({tags}).cc('tags-section'))
   }
 }

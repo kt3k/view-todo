@@ -15,6 +15,8 @@ class Router {
       location.replace('#all')
     } else if (location.hash === '#all') {
       $('.main').trigger('page-all-projects')
+    } else if (location.hash === '#tags') {
+      $('.main').trigger('page-tags')
     } else if (/^#project/.test(location.hash)) {
       const match = location.hash.match(/^#project\/([^\/]+)/)
 
