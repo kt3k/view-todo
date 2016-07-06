@@ -9,7 +9,7 @@ const ProjectRepositoryFe = require('../../domain/project-repository-fe')
 
 require('bootstrap')
 
-const {span, hr, div, a, i, p} = require('dom-gen')
+const {span, hr, div} = require('dom-gen')
 
 const {emit, on, component} = $.cc
 
@@ -50,7 +50,7 @@ class Main {
 
   @on('page-single-project')
   @emit('page-empty')
-  singleProject(e, title) {
+  singleProject (e, title) {
     this.getProjects().then(projects => {
       this.appendBackBtn('All projects', '#all')
 
@@ -68,7 +68,7 @@ class Main {
     this.elem.append(
       div({addClass: 'back-nav-area'},
         span(fa('arrow-left'), ' ', name).addClass('back-btn').click(() => {
-          location.href = url
+          window.location.href = url
         })
       )
     )

@@ -2,7 +2,7 @@ require('./todo-section')
 require('./project-status-section')
 require('./project-title-section')
 
-const {i, div, hr, h2, span, p} = require('dom-gen')
+const {div, hr, h2, p} = require('dom-gen')
 
 const {component} = $.cc
 
