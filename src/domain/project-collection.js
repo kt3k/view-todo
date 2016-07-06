@@ -1,3 +1,6 @@
+const TagFactory = require('./tag-factory')
+
+const factory = new TagFactory()
 
 /**
  * The collection class of Projects.
@@ -35,6 +38,14 @@ class ProjectCollection {
    */
   forEach (func) {
     this.projects.forEach(func)
+  }
+
+  /**
+   * Gets a tag collection.
+   * @return {TagCollection}
+   */
+  getTags () {
+    return factory.createCollectionFromProjectCollection(this)
   }
 }
 
