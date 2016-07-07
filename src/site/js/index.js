@@ -2,6 +2,7 @@ require('./globals')
 require('./components/project-section')
 require('./components/project-simple-section')
 require('./components/tags-section')
+require('./components/floating-logo')
 require('./components/router')
 
 const {fa} = require('./util')

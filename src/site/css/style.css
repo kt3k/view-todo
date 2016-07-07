@@ -4,10 +4,15 @@
   height: 30px;
   top: 15px;
   right: 15px;
+  transition-duration: 500ms;
 }
 
 .floating-logo:hover {
   cursor: pointer;
+}
+
+.floating-logo.clicked {
+  top: -100px;
 }
 
 .gray-out {
