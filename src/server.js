@@ -31,7 +31,7 @@ export function serve (configFilename, port) {
 
     server.route({
       method: 'GET',
-      path: '/site/{param*}',
+      path: '/{param*}',
       handler: { directory: { path: `${path.dirname(__dirname)}/site`, listing: true } }
     })
 
@@ -50,7 +50,7 @@ export function serve (configFilename, port) {
         process.exit(1)
       }
 
-      const siteUrl = server.info.uri + '/site'
+      const siteUrl = server.info.uri + '/'
 
       console.log('Server running at:', siteUrl)
       open(siteUrl)
