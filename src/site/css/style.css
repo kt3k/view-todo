@@ -1,5 +1,13 @@
-.navbar-title {
-  font-weight: bold;
+.floating-logo {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  top: 15px;
+  right: 15px;
+}
+
+.floating-logo:hover {
+  cursor: pointer;
 }
 
 .gray-out {
