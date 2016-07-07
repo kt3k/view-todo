@@ -1,6 +1,6 @@
 <img align="right" width="200" height="200" src="http://kt3k.github.io/view-todo/src/site/img/view-todo.svg" />
 
-# view-todo v1.8.0 [![Circle CI](https://circleci.com/gh/kt3k/view-todo.svg?style=svg)](https://circleci.com/gh/kt3k/view-todo) [![codecov.io](https://codecov.io/github/kt3k/view-todo/coverage.svg?branch=master)](https://codecov.io/github/kt3k/view-todo?branch=master)
+# view-todo v1.8.1 [![Circle CI](https://circleci.com/gh/kt3k/view-todo.svg?style=svg)](https://circleci.com/gh/kt3k/view-todo) [![codecov.io](https://codecov.io/github/kt3k/view-todo/coverage.svg?branch=master)](https://codecov.io/github/kt3k/view-todo?branch=master)
 
 > TODO.md viewer app.
 
