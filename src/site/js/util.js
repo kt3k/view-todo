@@ -11,3 +11,9 @@ exports.fa = name => i().addClass('fa fa-' + name)
  * @return {Promise}
  */
 exports.wait = dur => new Promise(r => setTimeout(r, dur))
+
+/**
+ * @param {number} s The saturation
+ * @param {number} l The lightness
+ */
+exports.randomHsl = (s, l) => `hsl(${Math.floor(Math.random() * 360)},${s}%,${l}%)`

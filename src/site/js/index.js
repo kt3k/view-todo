@@ -5,7 +5,7 @@ require('./components/tags-section')
 require('./components/floating-logo')
 require('./components/router')
 
-const {fa, wait} = require('./util')
+const {fa, wait, randomHsl} = require('./util')
 
 const ProjectRepositoryFe = require('../../domain/project-repository-fe')
 const ProjectTagSetService = require('../../domain/project-tag-set-service')
@@ -48,11 +48,13 @@ class {
   @on('show-page')
   showPage () {
     this.elem.css('opacity', 1)
+    this.elem.css('color', '#333')
     this.elem.css('transform', 'translate(0, 0)')
   }
 
   emptyPage () {
     this.elem.css('opacity', 0)
+    this.elem.css('color', randomHsl(100, 53))
     this.elem.css('transform', 'translate(-20px, 0)')
 
     return wait(400).then(() => this.elem.empty())
