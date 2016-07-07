@@ -1,4 +1,13 @@
+.gray-out {
+  color: #999;
+}
+
+.display-none {
+  display: none;
+}
+
 .floating-logo {
+  z-index: 2;
   position: fixed;
   width: 30px;
   height: 30px;
@@ -15,12 +24,8 @@
   top: -100px;
 }
 
-.gray-out {
-  color: #999;
-}
-
-.display-none {
-  display: none;
+.main {
+  transition-duration: 400ms;
 }
 
 .task-area {

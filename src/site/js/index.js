@@ -5,7 +5,7 @@ require('./components/tags-section')
 require('./components/floating-logo')
 require('./components/router')
 
-const {fa} = require('./util')
+const {fa, wait} = require('./util')
 
 const ProjectRepositoryFe = require('../../domain/project-repository-fe')
 const ProjectTagSetService = require('../../domain/project-tag-set-service')
@@ -20,7 +20,7 @@ const repository = new ProjectRepositoryFe()
 const service = new ProjectTagSetService()
 
 void @component('main')
-class Main {
+class {
   constructor (elem) {
     const router = $(window).data({target: elem}).cc('router')
 
@@ -45,15 +45,23 @@ class Main {
     return this.getProjects().then(projects => projects.getTags())
   }
 
-  @on('page-empty')
-  empty () {
-    this.elem.empty()
+  @on('show-page')
+  showPage () {
+    this.elem.css('opacity', 1)
+    this.elem.css('transform', 'translate(0, 0)')
+  }
+
+  emptyPage () {
+    this.elem.css('opacity', 0)
+    this.elem.css('transform', 'translate(-20px, 0)')
+
+    return wait(400).then(() => this.elem.empty())
   }
 
   @on('page-all-projects')
-  @emit('page-empty')
+  @emit('show-page').last
   allProjects () {
-    this.getProjects().then(projects => {
+    return this.emptyPage().then(() => this.getProjects()).then(projects => {
       this.appendBackBtn('All tags', '#tags')
       this.elem.append(hr())
 
@@ -64,9 +72,10 @@ class Main {
   }
 
   @on('page-single-project')
-  @emit('page-empty')
+  @emit('show-page').last
   singleProject (e, title) {
-    this.getProjects().then(projects => {
+    return this.emptyPage().then(() => this.getProjects()).then(projects => {
+      console.log('single page')
       this.appendBackBtn('All projects', '#projects')
       this.elem.append(hr())
 
@@ -77,9 +86,9 @@ class Main {
   }
 
   @on('page-tags')
-  @emit('page-empty')
+  @emit('show-page').last
   showTagsPage () {
-    this.getTags().then(tags => {
+    return this.emptyPage().then(() => this.getTags()).then(tags => {
       tags.sort()
 
       this.appendBackBtn('All projects', '#projects')
@@ -94,12 +103,10 @@ class Main {
    * @param {string} name The tag name
    */
   @on('page-single-tag')
-  @emit('page-empty')
+  @emit('show-page').last
   showSingleTagPage (e, name) {
-    this.getTags().then(tags => {
+    return this.emptyPage().then(() => this.getTags()).then(tags => {
       const tag = tags.getByName(name)
-
-      console.log(tag)
 
       this.appendBackBtn('All tags', '#tags')
       this.elem.append(hr())
