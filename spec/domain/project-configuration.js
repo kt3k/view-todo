@@ -5,7 +5,7 @@ import {expect} from 'chai'
 
 import path from 'path'
 
-const fixturePath = `${path.dirname(__dirname)}/fixture`
+const fixturePath = `${path.dirname(__dirname)}/fixture/view-todo`
 
 describe('ProjectConfiguration', () => {
   describe('getProject', () => {

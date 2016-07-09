@@ -14,7 +14,7 @@ describe('ProjectFactory', () => {
     it('creates a project from the markdown string and configuration', () => {
       const configuration = new ProjectConfiguration({title: 'foo', path: '/home/user/project'})
 
-      const project = factory.createFromMarkdown(fs.readFileSync(`${path.dirname(__dirname)}/fixture/TODO.md`).toString(), configuration)
+      const project = factory.createFromMarkdown(fs.readFileSync(`${path.dirname(__dirname)}/fixture/view-todo/TODO.md`).toString(), configuration)
 
       expect(project).to.be.instanceof(Project)
       expect(project.title).to.equal('foo')

@@ -8,7 +8,7 @@ import {expect} from 'chai'
 
 const repository = new ProjectRepository()
 
-const fixturePath = `${path.dirname(__dirname)}/fixture/TODO.md`
+const fixturePath = `${path.dirname(__dirname)}/fixture/view-todo/TODO.md`
 
 describe('ProjectRepository', () => {
   describe('getByPath', () => {

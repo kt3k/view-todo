@@ -4,7 +4,7 @@ import {expect} from 'chai'
 
 import path from 'path'
 
-const fixturePath = `${path.dirname(__dirname)}/fixture`
+const fixturePath = `${path.dirname(__dirname)}/fixture/view-todo`
 const fixtureTodoPath = fixturePath + '/TODO.md'
 
 describe('Project', () => {
@@ -20,12 +20,12 @@ describe('Project', () => {
       const conf0 = new ProjectConfiguration({path: fixturePath})
       const project0 = conf0.getProject()
 
-      expect(project0.getTitle()).to.equal('fixture')
+      expect(project0.getTitle()).to.equal('view-todo')
 
       const conf1 = new ProjectConfiguration({path: fixtureTodoPath})
       const project1 = conf1.getProject()
 
-      expect(project1.getTitle()).to.equal('fixture')
+      expect(project1.getTitle()).to.equal('view-todo')
     })
   })
 })
