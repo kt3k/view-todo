@@ -51,7 +51,9 @@ Example
 
 You can access http://localhost:3000/site and will see something like:
 
-![ss](http://kt3k.github.io/view-todo/media/todo-ss.png)
+![ss0](http://kt3k.github.io/view-todo/media/view-todo-ss0.png)
+![ss1](http://kt3k.github.io/view-todo/media/view-todo-ss1.png)
+![ss2](http://kt3k.github.io/view-todo/media/view-todo-ss2.png)
 
 ## Init config file
 
