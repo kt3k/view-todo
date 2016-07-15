@@ -87,7 +87,7 @@ class {
     })
   }
 
-  @on('page-tags')
+  @on('page-all-tags')
   @emit('show-page').last
   showTagsPage () {
     return this.emptyPage().then(() => this.getTags()).then(tags => {

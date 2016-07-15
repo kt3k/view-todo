@@ -1,4 +1,5 @@
 const {on, component} = $.cc
+const {route, dispatch} = require('hash-route')
 
 const location = window.location
 
@@ -13,25 +14,31 @@ class Router {
 
   @on('hashchange')
   onHashchange () {
-    if (location.hash === '') {
-      location.replace('#projects')
-    } else if (location.hash === '#') {
-      location.replace('#projects')
-    } else if (location.hash === '#projects') {
-      this.target.trigger('page-all-projects')
-    } else if (location.hash === '#tags') {
-      this.target.trigger('page-tags')
-    } else if (/^#tags\/.+/.test(location.hash)) {
-      const match = location.hash.match(/^#tags\/([^\/]+)/)
+    dispatch(this, location.hash)
+  }
 
-      this.target.trigger('page-single-tag', match[1])
-    } else if (/^#projects\/.+/.test(location.hash)) {
-      const match = location.hash.match(/^#projects\/([^\/]+)/)
+  @route('(#)?') root () {
+    location.replace('#projects')
+  }
 
-      this.target.trigger('page-single-project', match[1])
-    } else {
-      this.target.trigger('page-404')
-    }
+  @route('#projects') projects () {
+    this.target.trigger('page-all-projects')
+  }
+
+  @route('#tags') tags () {
+    this.target.trigger('page-all-tags')
+  }
+
+  @route('#projects/:project') singleProject (params) {
+    this.target.trigger('page-single-project', params.project)
+  }
+
+  @route('#tags/:tag') singleTag (params) {
+    this.target.trigger('page-single-tag', params.tag)
+  }
+
+  @route('*') notFound () {
+    this.target.trigger('page-404')
   }
 }
 
