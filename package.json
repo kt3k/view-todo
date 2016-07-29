@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "editor": "^1.0.0",
-    "hapi": "^13.5.0",
+    "hapi": "^14.0.0",
     "inert": "^4.0.0",
     "js-yaml": "^3.6.0",
     "marked": "^0.3.5",
