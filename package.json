@@ -70,7 +70,7 @@
     "gulp-wrap": "^0.13.0",
     "hash-route": "^1.0.2",
     "jquery": "^3.1.0",
-    "mocha": "^2.5.0",
+    "mocha": "^3.0.0",
     "nunjucks": "^2.4.2",
     "nyc": "^7.0.0",
     "standard": "^7.1.2",
