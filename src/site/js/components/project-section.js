@@ -6,7 +6,7 @@ const {div, hr, h2, p} = require('dom-gen')
 
 const {component} = $.cc
 
-@component('project-section')
+@component
 class ProjectSection {
   constructor (elem) {
     /**

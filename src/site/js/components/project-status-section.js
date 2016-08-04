@@ -4,7 +4,7 @@ const {span} = require('dom-gen')
 
 const {on, component} = $.cc
 
-@component('project-status-section')
+@component
 class ProjectStatusSection {
   constructor (elem) {
     /**

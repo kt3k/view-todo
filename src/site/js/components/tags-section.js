@@ -4,7 +4,7 @@ const {component} = $.cc
 
 const {div, hr, p} = require('dom-gen')
 
-@component('tags-section')
+@component
 class TagsSection {
   constructor (elem) {
     const tags = elem.data('tags')

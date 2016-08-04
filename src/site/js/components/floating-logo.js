@@ -1,7 +1,7 @@
 
 const {component, on} = $.cc
 
-@component('floating-logo')
+@component
 class FloatingLogo {
   @on('click')
   onClick () {

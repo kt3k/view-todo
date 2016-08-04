@@ -19,8 +19,8 @@ const {emit, on, component} = $.cc
 const repository = new ProjectRepositoryFe()
 const service = new ProjectTagSetService()
 
-void @component('main')
-class {
+@component
+class Main {
   constructor (elem) {
     const router = $(window).data({target: elem}).cc('router')
 
@@ -52,9 +52,12 @@ class {
     this.elem.css('transform', 'translate(0, 0)')
   }
 
+  /**
+   * Empties the main contents.
+   * @return {Promise}
+   */
   emptyPage () {
     this.elem.css('opacity', 0)
-    this.elem.css('color', randomHsl(100, 53))
     this.elem.css('transform', 'translate(-20px, 0)')
 
     return wait(400).then(() => this.elem.empty())
@@ -77,7 +80,6 @@ class {
   @emit('show-page').last
   singleProject (e, title) {
     return this.emptyPage().then(() => this.getProjects()).then(projects => {
-      console.log('single page')
       this.appendBackBtn('All projects', '#projects')
       this.elem.append(hr())
 
@@ -154,3 +156,5 @@ class {
     this.elem.append(div().data({tags}).cc('tags-section'))
   }
 }
+
+module.exports = Main
