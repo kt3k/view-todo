@@ -19,7 +19,7 @@ class TaskSection {
   }
 }
 
-void @component('done-section')
+@component
 class DoneSection extends TaskSection {
   constructor (elem) {
     super(elem)
@@ -44,7 +44,7 @@ class DoneSection extends TaskSection {
   }
 }
 
-void @component('todo-section')
+@component
 class TodoSection extends TaskSection {
   constructor (elem) {
     super(elem)
@@ -56,3 +56,6 @@ class TodoSection extends TaskSection {
     return i().addClass('fa fa-thumb-tack')
   }
 }
+
+exports.DoneSection = DoneSection
+exports.TodoSection = TodoSection

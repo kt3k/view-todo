@@ -1,6 +1,6 @@
 const {component} = $.cc
 
-@component('project-title-section')
+@component
 class ProjectTitleSection {
   constructor (elem) {
     const project = elem.data('project')
