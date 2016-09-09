@@ -3,7 +3,6 @@ require('./components/project-section')
 require('./components/project-simple-section')
 require('./components/tags-section')
 require('./components/floating-logo')
-require('./components/router')
 
 const {fa, wait, randomHsl} = require('./util')
 
@@ -13,18 +12,30 @@ const ProjectTagSetService = require('../../domain/project-tag-set-service')
 require('bootstrap')
 
 const {span, hr, div} = require('dom-gen')
+const {route, dispatch} = require('hash-route')
 
 const {emit, on, component} = $.cc
 
 const repository = new ProjectRepositoryFe()
 const service = new ProjectTagSetService()
 
+const TRANSITION_DURATION = 400
+
+const page = (target, key, desc) => {
+  const method = desc.value
+
+  desc.value = function () {
+    this.page(() => method.apply(this, arguments))
+  }
+}
+
 @component
 class Main {
-  constructor (elem) {
-    const router = $(window).data({target: elem}).cc('router')
+  constructor () {
+    const onHashchange = () => dispatch(this)
 
-    setTimeout(() => router.trigger('hashchange'))
+    $(window).on('hashchange', onHashchange)
+    setTimeout(onHashchange)
   }
 
   /**
@@ -45,60 +56,69 @@ class Main {
     return this.getProjects().then(projects => projects.getTags())
   }
 
-  @on('show-page')
-  showPage () {
+  /**
+   * Shows the main contents.
+   * @return {Promise}
+   */
+  outro () {
     this.elem.css('opacity', 1)
     this.elem.css('color', '#333')
     this.elem.css('transform', 'translate(0, 0)')
+
+    return wait(TRANSITION_DURATION)
   }
 
   /**
-   * Empties the main contents.
+   * Hides the main contents.
    * @return {Promise}
    */
-  emptyPage () {
+  intro () {
     this.elem.css('opacity', 0)
     this.elem.css('transform', 'translate(-20px, 0)')
 
-    return wait(400).then(() => this.elem.empty())
+    return wait(TRANSITION_DURATION).then(() => this.elem.empty())
   }
 
-  @on('page-all-projects')
-  @emit('show-page').last
-  allProjects () {
-    return this.emptyPage().then(() => this.getProjects()).then(projects => {
-      this.appendBackBtn('All tags', '#tags')
-      this.elem.append(hr())
-
-      projects.forEach(project => {
-        this.appendProjectSimpleSection(project)
-      })
-    })
+  /**
+   * Processes the page transition.
+   * @param {Function} createPage The function which creates the page contents.
+   */
+  page (createPage) {
+    return this.intro()
+      .then(createPage)
+      .then(array => this.elem.append(...array))
+      .then(() => this.outro())
   }
 
-  @on('page-single-project')
-  @emit('show-page').last
-  singleProject (e, title) {
-    return this.emptyPage().then(() => this.getProjects()).then(projects => {
-      this.appendBackBtn('All projects', '#projects')
-      this.elem.append(hr())
-
-      const project = projects.getByName(title)
-
-      this.appendProjectSection(project)
-    })
+  @route '(#)?' () {
+    location.replace('#projects')
   }
 
-  @on('page-all-tags')
-  @emit('show-page').last
-  showTagsPage () {
-    return this.emptyPage().then(() => this.getTags()).then(tags => {
+  @route @page '#projects' () {
+    return this.getProjects().then(projects => [
+      this.backBtn('All tags', '#tags'),
+      hr(),
+      projects.map(project => this.projectSimpleSection(project))
+    ])
+  }
+
+  @route @page '#projects/:project' (params) {
+    return this.getProjects().then(projects => [
+      this.backBtn('All projects', '#projects'),
+      hr(),
+      this.projectSection(projects.getByName(params.project))
+    ])
+  }
+
+  @route @page '#tags' () {
+    return this.getTags().then(tags => {
       tags.sort()
 
-      this.appendBackBtn('All projects', '#projects')
-      this.elem.append(hr())
-
-      this.appendTagsSection(tags)
+      return [
+        this.backBtn('All projects', '#projects'),
+        hr(),
+        this.tagsSection(tags)
+      ]
     })
   }
 
@@ -106,54 +126,45 @@ class Main {
    * @param {object} e The event object
    * @param {string} name The tag name
    */
-  @on('page-single-tag')
-  @emit('show-page').last
-  showSingleTagPage (e, name) {
-    return this.emptyPage().then(() => this.getTags()).then(tags => {
-      const tag = tags.getByName(name)
-
-      this.appendBackBtn('All tags', '#tags')
-      this.elem.append(hr())
-
-      tag.projects.forEach(project => {
-        this.appendProjectSimpleSection(project)
-      })
-    })
+  @route @page '#tags/:tag' (params) {
+    return this.getTags().then(tags => tags.getByName(params.tag)).then(tag => [
+      this.backBtn('All tags', '#tags'),
+      hr(),
+      tag.projects.map(project => this.projectSimpleSection(project))
+    ])
   }
 
   /**
    * @param {string} name The name of the button
    * @param {string} url The back url
    */
-  appendBackBtn (name, url) {
-    this.elem.append(
-      div({addClass: 'back-nav-area'},
-        span(fa('arrow-left'), ' ', name).addClass('back-btn').click(() => {
-          window.location.href = url
-        })
-      )
+  backBtn (name, url) {
+    return div({addClass: 'back-nav-area'},
+      span(fa('arrow-left'), ' ', name).addClass('back-btn').click(() => {
+        window.location.href = url
+      })
     )
   }
 
   /**
    * @param {Project} project The project
    */
-  appendProjectSection (project) {
-    this.elem.append(div().data({project}).cc('project-section'))
+  projectSection (project) {
+    return div().data({project}).cc('project-section')
   }
 
   /**
    * @param {Project} project The project
    */
-  appendProjectSimpleSection (project) {
-    this.elem.append(div().data({project}).cc('project-simple-section'))
+  projectSimpleSection (project) {
+    return div().data({project}).cc('project-simple-section')
   }
 
   /**
    * @param {Tags} tags
    */
-  appendTagsSection (tags) {
-    this.elem.append(div().data({tags}).cc('tags-section'))
+  tagsSection (tags) {
+    return div().data({tags}).cc('tags-section')
   }
 }
 
