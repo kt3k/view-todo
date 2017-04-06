@@ -58,7 +58,7 @@
     "babel-register": "^6.7.2",
     "babelify": "^7.2.0",
     "bootstrap": "^3.3.6",
-    "browserify": "^14.0.0",
+    "browserify": "^14.3.0",
     "bulbo": "^6.0.1",
     "chai": "^3.5.0",
     "class-component": "^13.0.0",
